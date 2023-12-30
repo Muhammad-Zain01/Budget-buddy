@@ -1,6 +1,6 @@
 import React from "react"
 import dynamic from "next/dynamic"
-import { Theme } from "@/common/theme"
+import { AntTheme } from "@/common/theme"
 
 const ConfigProvider = dynamic(() => import("antd").then(mod => mod.ConfigProvider), { ssr: false })
 
@@ -9,7 +9,7 @@ type ComponentProps = {
 }
 const UIThemeProvider: React.FC<ComponentProps> = ({ children }): JSX.Element => {
     return (
-        <ConfigProvider theme={Theme}>
+        <ConfigProvider theme={AntTheme}>
             {children}
         </ConfigProvider>
     )

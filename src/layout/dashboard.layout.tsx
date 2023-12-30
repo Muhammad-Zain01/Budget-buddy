@@ -1,18 +1,18 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
-import { Layout, Menu, Sider, Footer, Header, Content } from '@/ui/imports/ui-import';
-import { DashboardLayoutWrapper } from './dashboard.style';
+import { Layout } from '@/ui/imports/ui-import';
+import { DashboardContent, DashboardFooter, DashboardHeader, DashboardLayoutWrapper, DashboardMenu, DashboardSidebar } from './dashboard.style';
+import { ChildNodeType } from '@/common/types';
+import { useTheme } from '@/context/theme';
 
 const UploadOutlined = dynamic(() => import("@ant-design/icons").then(mod => mod.UploadOutlined), { ssr: false })
 
-const DasboardLayout: React.FC = () => {
+const DasboardLayout: React.FC<ChildNodeType> = ({ children }) => {
+    const { theme } = useTheme()
     return (
         <DashboardLayoutWrapper>
-            <Sider collapsed={true}>
-                <div className="demo-logo-vertical" />
-                <Menu
-                    theme="dark"
-                    mode="inline"
+            <DashboardSidebar collapsed={true}>
+                <DashboardMenu
                     defaultSelectedKeys={['1']}
                     items={[
                         {
@@ -32,17 +32,17 @@ const DasboardLayout: React.FC = () => {
                         },
                     ]}
                 />
-            </Sider>
+            </DashboardSidebar>
             <Layout>
-                <Header>
+                <DashboardHeader>
                     Dashboard
-                </Header>
-                <Content>
-                    Content
-                </Content>
-                <Footer>
-                    Footer
-                </Footer>
+                </DashboardHeader>
+                <DashboardContent>
+                    {children}sdf
+                </DashboardContent>
+                <DashboardFooter>
+                    All Right Reservered By Muhammad Zain
+                </DashboardFooter>
             </Layout>
         </DashboardLayoutWrapper>)
 };
