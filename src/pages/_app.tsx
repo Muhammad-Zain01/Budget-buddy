@@ -3,9 +3,12 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import dynamic from 'next/dynamic'
 import DasboardLayout from '@/layout/dashboard.layout'
-const GlobalProvider = dynamic(() => import('@/ui/provider/provider'), { ssr: false })
+import useLoadingState from '@/hooks/useLoadingState'
+import GlobalProvider from '@/ui/provider/provider'
+import Loader from '@/components/loader/loader'
 
 export default function App({ Component, pageProps }: AppProps) {
+  const { loading } = useLoadingState();
   return (
     <main>
       <Head>
@@ -16,7 +19,9 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
       <GlobalProvider>
         <DasboardLayout>
-          <Component {...pageProps} />
+          {
+            !loading ? <Component {...pageProps} />: <Loader />
+          }
         </DasboardLayout>
       </GlobalProvider>
     </main>

@@ -8,7 +8,8 @@ export const DashboardLayoutWrapper = styled(Layout)`
 `
 export const DashboardHeader = styled(Header)`
     color: ${props => props.theme.color};
-    background: ${props => props.theme.background};
+    background: ${props => props.theme.contentBackground};
+    padding: 25px 30px;
 `
 export const DashboardFooter = styled(Footer)`
     text-align: center;

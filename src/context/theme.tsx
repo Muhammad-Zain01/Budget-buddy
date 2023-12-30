@@ -15,7 +15,7 @@ const ThemeTypes: ThemeTypes = {
     theme: 'SET_THEME'
 }
 const defaultValues: ContextState = {
-    theme: 'light',
+    theme: 'dark',
     toggleTheme: () => { },
 }
 const ThemeContext = createContext(defaultValues)
