@@ -2,6 +2,7 @@ import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import dynamic from 'next/dynamic'
+import DasboardLayout from '@/layout/dashboard.layout'
 const GlobalProvider = dynamic(() => import('@/ui/provider/provider'), { ssr: false })
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -14,7 +15,9 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <GlobalProvider>
-        <Component {...pageProps} />
+        <DasboardLayout>
+          <Component {...pageProps} />
+        </DasboardLayout>
       </GlobalProvider>
     </main>
   )

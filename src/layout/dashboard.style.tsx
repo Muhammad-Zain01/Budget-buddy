@@ -28,6 +28,15 @@ export const DashboardSidebar = styled(Sider)`
 `
 
 export const DashboardMenu = styled(Menu)`
-    color: ${props => props.theme.color};
+    color: ${props => props.theme.color} !important;
     background-color: transparent !important;
+
+    .ant-menu-item-active{
+        background-color: ${props => props.theme.hoverShade} !important;
+        color: ${props => props.theme.color} !important;
+    }
+    .ant-menu-item-selected{
+        background: linear-gradient(120deg, #3563c5,#2250b2);
+        color: white !important;
+    }
 `
