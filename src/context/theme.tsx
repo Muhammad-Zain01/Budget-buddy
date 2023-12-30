@@ -1,8 +1,8 @@
 import React, { createContext, useState } from "react";
 
 export type ContextState = {
-    theme: string;
-    setTheme: (theme: string) => void;
+    theme: "light" | "dark";
+    toggleTheme: () => void;
 }
 type ProviderProps = {
     children: React.ReactNode
@@ -16,13 +16,14 @@ const ThemeTypes: ThemeTypes = {
 }
 const defaultValues: ContextState = {
     theme: 'light',
-    setTheme: () => { },
+    toggleTheme: () => { },
 }
 const ThemeContext = createContext(defaultValues)
 
 export const ThemeProvider: React.FC<ProviderProps> = ({ children }) => {
-    const [theme, setTheme] = useState(defaultValues.theme);
-    const value: ContextState = { theme, setTheme }
+    const [theme, setTheme] = useState<"light" | "dark">(defaultValues.theme);
+    const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : "dark")
+    const value: ContextState = { theme, toggleTheme }
     return (
         <ThemeContext.Provider value={value}>
             {children}

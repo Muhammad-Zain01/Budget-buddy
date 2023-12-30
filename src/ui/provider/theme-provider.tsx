@@ -1,18 +1,25 @@
-import React from "react"
-import dynamic from "next/dynamic"
-import { Theme } from "@/common/theme"
+import { useTheme } from "@/context/theme";
+import { Themes as ThemeObject, Theme } from "@/common/theme";
+import { ChildNodeType } from "@/common/types";
+import { ThemeProvider as StyledThemeProvider, createGlobalStyle } from "styled-components";
 
-const ConfigProvider = dynamic(() => import("antd").then(mod => mod.ConfigProvider), { ssr: false })
-
-type ComponentProps = {
-    children: React.ReactNode
-}
-const UIThemeProvider: React.FC<ComponentProps> = ({ children }): JSX.Element => {
+const GlobalStyles = createGlobalStyle`
+    body {
+        padding: 0;
+        margin: 0;
+        background-color: ${props => props.theme.background};
+    }
+`
+const ThemeProvider: React.FC<ChildNodeType> = ({ children }) => {
+    const { theme } = useTheme()
     return (
-        <ConfigProvider theme={Theme}>
-            {children}
-        </ConfigProvider>
+        <>
+            <StyledThemeProvider theme={ThemeObject[theme as "light" | "dark"]}>
+                <GlobalStyles />
+                {children}
+            </StyledThemeProvider>
+        </>
     )
 }
 
-export default UIThemeProvider;
+export default ThemeProvider;

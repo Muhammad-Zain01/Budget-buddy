@@ -1,20 +1,20 @@
 
 import React from "react"
-import UIThemeProvider from "./theme-provider";
-import { ThemeProvider } from "@/context/theme";
-import { GlobalStyle } from "./global-style";
-import { useTheme } from "@/context/theme";
+import UIThemeProvider from "./ui-theme-provider";
+import { ThemeProvider as ContextThemeProvider } from "@/context/theme";
+import ThemeProvider from "./theme-provider";
 type ComponentProps = {
     children: React.ReactNode
 }
+
 const GlobalProvider: React.FC<ComponentProps> = ({ children }): JSX.Element => {
-    const { theme } = useTheme()
     return (
         <UIThemeProvider>
-            <GlobalStyle theme={theme} />
-            <ThemeProvider>
-                {children}
-            </ThemeProvider>
+            <ContextThemeProvider>
+                <ThemeProvider>
+                    {children}
+                </ThemeProvider>
+            </ContextThemeProvider>
         </UIThemeProvider>
     )
 }

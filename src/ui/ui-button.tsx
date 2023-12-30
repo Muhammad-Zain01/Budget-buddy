@@ -5,7 +5,8 @@ import { ButtonProps } from "antd";
 const Button = dynamic(() => import("antd").then(mod => mod.Button), { ssr: false })
 
 const MainButton = styled(Button)`
-    color: var(--main-color);
+    color: ${(props) => props.theme.color};
+    background-color: ${(props) => props.theme.background};
 `
 
 const UI_Button: React.FC<ChildNodeType | ButtonProps> = ({ children, ...props }) => {
