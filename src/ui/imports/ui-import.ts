@@ -8,7 +8,8 @@ export const Content = dynamic(() => import("antd").then(mod => mod.Layout.Conte
 export const Button = dynamic(() => import("antd").then(mod => mod.Button), { ssr: false })
 export const Title = dynamic(() => import("antd").then(mod => mod.Typography.Title), { ssr: false })
 export const Text = dynamic(() => import("antd").then(mod => mod.Typography.Text), { ssr: false })
-
+export const Card = dynamic(() => import("antd").then(mod => mod.Card), { ssr: false })
 export const Table = dynamic(() => import("antd").then(mod => mod.Table), { ssr: false })
+export const Switch = dynamic(() => import("antd").then(mod => mod.Switch), { ssr: false })
 
 

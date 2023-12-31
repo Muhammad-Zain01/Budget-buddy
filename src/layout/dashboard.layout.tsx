@@ -47,7 +47,7 @@ const DasboardLayout: React.FC<ChildNodeType> = ({ children }) => {
             </DashboardSidebar>
             <Layout>
                 <DashboardHeader>
-                    <DashboardHeaderHeading level={2}>{title}</DashboardHeaderHeading>
+                    <DashboardHeaderHeading level={3}>{title}</DashboardHeaderHeading>
                 </DashboardHeader>
                 <DashboardContent>
                     {children}

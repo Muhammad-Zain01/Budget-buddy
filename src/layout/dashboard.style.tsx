@@ -11,6 +11,7 @@ export const DashboardHeader = styled(Header)`
     color: ${props => props.theme.color};
     background: ${props => props.theme.contentBackground};
     padding: 25px 30px;
+    height: unset !important;
 `
 export const DashboardFooter = styled(Footer)`
     text-align: center;
@@ -53,7 +54,7 @@ export const DashboardSidebar = styled(Sider)`
     
 `
 export const DashboardHeaderHeading = styled(UI_Title)`
-    margin: 0px;
+    margin: 0px !important;
 `
 export const DashboardMenu = styled(Menu)`
     color: ${props => props.theme.color} !important;
