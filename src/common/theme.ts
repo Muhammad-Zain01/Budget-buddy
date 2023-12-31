@@ -18,6 +18,8 @@ type ThemeType = {
     background: string;
     contentBackground: string;
     hoverShade: string;
+    cardBackground: string;
+    cardShadow: string;
 }
 export type Theme = {
     'dark': ThemeType;
@@ -26,15 +28,19 @@ export type Theme = {
 export const Themes: Theme = {
     "light": {
         color: '#172432',
-        background: '#ffffff',
-        contentBackground: '#ffffff',
-        hoverShade: '#d3d3ff33'
+        background: '#efefef',
+        contentBackground: '#f2f2f2',
+        hoverShade: '#d3d3ff33',
+        cardBackground: 'white',
+        cardShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;',
     },
     "dark": {
         color: '#fdfdfe',
         background: '#172737fa',
         hoverShade: '#d3d3ff33',
         contentBackground: '#172432',
+        cardBackground: '#273645',
+        cardShadow: 'rgb(0 0 0 / 29%) 0px 48px 100px 0px',
     }
 }
 export const AntTheme = {

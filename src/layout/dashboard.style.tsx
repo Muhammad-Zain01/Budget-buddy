@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Footer, Header, Layout, Content, Sider, Menu } from "@/ui/imports/ui-import";
+import UI_Title from "@/ui/components/ui-title";
 
 export const DashboardLayoutWrapper = styled(Layout)`
     overflow: hidden;
@@ -17,16 +18,14 @@ export const DashboardFooter = styled(Footer)`
     display: flex;
     justify-content: center;
     align-items: center;
-    color: ${props => props.theme.color};
     background: ${props => props.theme.contentBackground};
-
+    color: ${props => props.theme.color};
+    
     a{
+        color: ${props => props.theme.color};
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: red;
-        &:hover{
-        }
     }
 `
 export const DashboardContent = styled(Content)`
@@ -38,8 +37,24 @@ export const DashboardContent = styled(Content)`
 export const DashboardSidebar = styled(Sider)`
     color: ${props => props.theme.color};
     background-color: ${props => props.theme.background} !important;
+    padding: 5px;
+    ul{
+        border: none !important;
+    }
+    a{
+        font-size: 16px !important; 
+    }
+    li{
+        height: 50px !important;
+        margin-bottom: 25px !important;
+        display: flex !important;
+        align-items: center;
+    }
+    
 `
-
+export const DashboardHeaderHeading = styled(UI_Title)`
+    margin: 0px;
+`
 export const DashboardMenu = styled(Menu)`
     color: ${props => props.theme.color} !important;
     background-color: transparent !important;

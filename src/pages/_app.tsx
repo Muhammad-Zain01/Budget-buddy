@@ -1,4 +1,3 @@
-import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import DasboardLayout from '@/layout/dashboard.layout'
@@ -9,11 +8,7 @@ import { dashboardRoutes } from '@/common/settings'
 import { usePathname } from 'next/navigation'
 import styled from 'styled-components'
 
-const MainWrapper = styled.main`
-  html{
-    color: ${props => props.theme.color}
-  }
-`
+
 
 export default function App({ Component, pageProps }: AppProps) {
   const path = usePathname().split('/')[1];
@@ -28,13 +23,11 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <GlobalProvider>
-        <MainWrapper>
-          {
-            dashboardRoutes.includes(path) ? (
-              <DasboardLayout>{!loading ? <Component {...pageProps} /> : <Loader />}</DasboardLayout>
-            ) : (<Component {...pageProps} />)
-          }
-        </MainWrapper>
+        {
+          dashboardRoutes.includes(path) ? (
+            <DasboardLayout>{!loading ? <Component {...pageProps} /> : <Loader />}</DasboardLayout>
+          ) : (<Component {...pageProps} />)
+        }
       </GlobalProvider>
     </main>
   )

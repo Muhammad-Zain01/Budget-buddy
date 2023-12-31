@@ -9,4 +9,6 @@ export const Button = dynamic(() => import("antd").then(mod => mod.Button), { ss
 export const Title = dynamic(() => import("antd").then(mod => mod.Typography.Title), { ssr: false })
 export const Text = dynamic(() => import("antd").then(mod => mod.Typography.Text), { ssr: false })
 
+export const Table = dynamic(() => import("antd").then(mod => mod.Table), { ssr: false })
+
 
