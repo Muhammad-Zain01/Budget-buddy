@@ -1,0 +1,1 @@
+export const dashboardRoutes = ["dashboard", "category", "account", "transaction"]

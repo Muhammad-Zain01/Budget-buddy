@@ -14,8 +14,20 @@ export const DashboardHeader = styled(Header)`
 export const DashboardFooter = styled(Footer)`
     text-align: center;
     padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: ${props => props.theme.color};
     background: ${props => props.theme.contentBackground};
+
+    a{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: red;
+        &:hover{
+        }
+    }
 `
 export const DashboardContent = styled(Content)`
     padding: 30px;

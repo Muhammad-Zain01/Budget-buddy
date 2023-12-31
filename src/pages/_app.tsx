@@ -1,13 +1,23 @@
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
-import dynamic from 'next/dynamic'
 import DasboardLayout from '@/layout/dashboard.layout'
 import useLoadingState from '@/hooks/useLoadingState'
 import GlobalProvider from '@/ui/provider/provider'
 import Loader from '@/components/loader/loader'
+import { dashboardRoutes } from '@/common/settings'
+import { usePathname } from 'next/navigation'
+import styled from 'styled-components'
+
+const MainWrapper = styled.main`
+  html{
+    color: ${props => props.theme.color}
+  }
+`
 
 export default function App({ Component, pageProps }: AppProps) {
+  const path = usePathname().split('/')[1];
+
   const { loading } = useLoadingState();
   return (
     <main>
@@ -18,11 +28,13 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <GlobalProvider>
-        <DasboardLayout>
+        <MainWrapper>
           {
-            !loading ? <Component {...pageProps} />: <Loader />
+            dashboardRoutes.includes(path) ? (
+              <DasboardLayout>{!loading ? <Component {...pageProps} /> : <Loader />}</DasboardLayout>
+            ) : (<Component {...pageProps} />)
           }
-        </DasboardLayout>
+        </MainWrapper>
       </GlobalProvider>
     </main>
   )
