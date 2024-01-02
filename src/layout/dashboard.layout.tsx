@@ -6,6 +6,8 @@ import { ChildNodeType } from '@/common/types';
 import { Account, Category, Dashboard, Github, LinkedIn, Transaction } from '@/components/icon/Icon';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import UI_Button from '@/ui/components/ui-button';
+import { useTheme } from '@/context/theme';
 
 const HeaderItems = [
     {
@@ -36,6 +38,7 @@ const HeaderItems = [
 
 const DasboardLayout: React.FC<ChildNodeType> = ({ children }) => {
     const path = usePathname().split('/')[1];
+    const {toggleTheme} = useTheme()
     const title = HeaderItems.find(item => item.key === path)?.title
     return (
         <DashboardLayoutWrapper>
@@ -44,6 +47,7 @@ const DasboardLayout: React.FC<ChildNodeType> = ({ children }) => {
                     defaultSelectedKeys={[path]}
                     items={HeaderItems}
                 />
+                <UI_Button onClick={toggleTheme}>Toggle Theme</UI_Button>
             </DashboardSidebar>
             <Layout>
                 <DashboardHeader>
