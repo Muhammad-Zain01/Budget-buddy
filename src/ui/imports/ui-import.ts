@@ -11,5 +11,6 @@ export const Text = dynamic(() => import("antd").then(mod => mod.Typography.Text
 export const Card = dynamic(() => import("antd").then(mod => mod.Card), { ssr: false })
 export const Table = dynamic(() => import("antd").then(mod => mod.Table), { ssr: false })
 export const Switch = dynamic(() => import("antd").then(mod => mod.Switch), { ssr: false })
-
+export const Tabs = dynamic(() => import("antd").then(mod => mod.Tabs), { ssr: false })
+export const Segmented = dynamic(() => import("antd").then(mod => mod.Segmented ), { ssr: false })
 

@@ -1,14 +1,4 @@
 
-// type ComponentProps = {
-//     key: string;
-//     size: number;
-// }
-// const Icon: React.FC<ComponentProps> = ({ key, size }) => {
-//     return <Image src="" />
-// }
-
-
-
 import { MdWindow } from "react-icons/md";
 import { GrTransaction } from "react-icons/gr";
 import { MdAccountBalanceWallet } from "react-icons/md";
@@ -22,6 +12,21 @@ import { IoFastFood } from "react-icons/io5";
 import { MdOutlineEmojiTransportation } from "react-icons/md";
 import { AiFillBank } from "react-icons/ai";
 import { IoMdCash } from "react-icons/io";
+import styled from "styled-components";
+import Image from "next/image";
+
+const IconImage = styled(Image)`
+    ${props => props.theme.theme === 'dark' && "filter: brightness(0) invert(1);" }
+`
+type ComponentProps = {
+    icon: string;
+    size: number;
+}
+export const Icon: React.FC<ComponentProps> = ({ icon, size }) => {
+    return <IconImage src={`/assets/icons/${icon}.png`} alt={icon} width={size} height={size} />
+}
+
+
 
 export const IconComponent: React.FC<any> = ({ Component, props }) => (<Component style={{ marginRight: props.right, fontSize: props.size }} {...props} />)
 

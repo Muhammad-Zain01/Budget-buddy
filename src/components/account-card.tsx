@@ -1,8 +1,8 @@
 import React from "react";
 
-import { Icons } from "../icon/Icon";
+// import { Icons } from "./icon/Icon";
 import { AmmountCard as Card, AmmountHeading } from "@/styles/amount";
-import Amount from "../amount/amount";
+import Amount from "./amount";
 import Image from "next/image";
 
 type ComponentProps = {

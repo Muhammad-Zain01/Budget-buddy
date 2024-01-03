@@ -3,7 +3,7 @@ import React from 'react';
 import { Layout } from '@/ui/imports/ui-import';
 import { DashboardContent, DashboardFooter, DashboardHeader, DashboardHeaderHeading, DashboardLayoutWrapper, DashboardMenu, DashboardSidebar } from './dashboard.style';
 import { ChildNodeType } from '@/common/types';
-import { Account, Category, Dashboard, Github, LinkedIn, Transaction } from '@/components/icon/Icon';
+import { Account, Category, Dashboard, Github, LinkedIn, Transaction } from '@/components/icon';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import UI_Button from '@/ui/components/ui-button';

@@ -21,6 +21,7 @@ type ThemeType = {
     cardBackground: string;
     cardShadow: string;
     cardBorder: string;
+    theme: string;
 }
 export type Theme = {
     'dark': ThemeType;
@@ -28,6 +29,7 @@ export type Theme = {
 }
 export const Themes: Theme = {
     "light": {
+        theme: 'light',
         color: '#172432',
         background: '#efefef',
         contentBackground: '#f2f2f2',
@@ -37,6 +39,7 @@ export const Themes: Theme = {
         cardBorder: '#e3e3e3',
     },
     "dark": {
+        theme: 'dark',
         color: '#fdfdfe',
         background: '#172737fa',
         hoverShade: '#d3d3ff33',

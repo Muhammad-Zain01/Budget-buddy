@@ -33,6 +33,7 @@ export const DashboardContent = styled(Content)`
     padding: 30px;
     color: ${props => props.theme.color};
     background: ${props => props.theme.contentBackground};
+    overflow-y: scroll;
 `
 
 export const DashboardSidebar = styled(Sider)`

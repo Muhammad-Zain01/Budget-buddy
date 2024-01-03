@@ -3,10 +3,9 @@ import Head from 'next/head'
 import DasboardLayout from '@/layout/dashboard.layout'
 import useLoadingState from '@/hooks/useLoadingState'
 import GlobalProvider from '@/ui/provider/provider'
-import Loader from '@/components/loader/loader'
+import Loader from '@/components/loader'
 import { dashboardRoutes } from '@/common/settings'
 import { usePathname } from 'next/navigation'
-import styled from 'styled-components'
 
 
 

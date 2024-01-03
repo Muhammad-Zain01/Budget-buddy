@@ -1,6 +1,6 @@
 import React from "react";
 import { CategoryCard as Card, CategoryHeading } from "@/styles/category";
-import { Icons } from "../icon/Icon";
+import { Icon } from "./icon";
 
 import UI_Switch from "@/ui/components/ui-switch";
 
@@ -15,7 +15,7 @@ const CategoryCard: React.FC<ComponentProps> = ({ category }): JSX.Element => {
     const { icon, title, isChecked } = category
     return (
         <Card>
-            <Icons icon={icon} />
+            <Icon icon={icon} size={50} />
             <CategoryHeading level={5} style={{ fontSize: 15 }}>{title}</CategoryHeading>
             <UI_Switch size="small" defaultChecked={isChecked} />
         </Card>
