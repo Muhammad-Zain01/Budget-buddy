@@ -1,9 +1,8 @@
 import React from "react";
 import { AmmountCard as Card, AmmountHeading } from "@/styles/amount";
 import Amount from "./amount";
-import { Dots } from "./icon";
 import { Icon } from "./icon";
-
+import AccountMenu from "./account-menu";
 type ComponentProps = {
     data: {
         icon: string;
@@ -22,7 +21,7 @@ const AccountCard: React.FC<ComponentProps> = ({ data }): JSX.Element => {
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                     <Amount />
-                    <Dots size={16} />
+                    <AccountMenu />
                 </div>
             </div>
         </Card>
