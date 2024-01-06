@@ -6,14 +6,12 @@ export const AmmountWrapper = styled.div`
 `
 
 export const AmmountCard = styled(Card)`
-    width: 25%;
-    /* min-width:140px; */
-    margin: 0px 10px;
+    width: calc(50% - 10px);
+    margin: 5px 5px;
     background-color: ${(props) => props.theme.cardBackground};
     color: ${(props) => props.theme.color};
-    /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
     border: 1px solid ${props => props.theme.cardBorder};
-    padding: 10px 0px;
+    /* padding: 0px 0px; */
 `
 
 export const AmmountHeading = styled(UI_Title)`
