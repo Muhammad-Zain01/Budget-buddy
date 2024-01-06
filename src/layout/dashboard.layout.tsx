@@ -8,7 +8,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import UI_Button from '@/ui/components/ui-button';
 import { useTheme } from '@/context/theme';
-
+import { useLayout } from '@/context/layout';
 const HeaderItems = [
     {
         key: 'dashboard',
@@ -38,16 +38,18 @@ const HeaderItems = [
 
 const DasboardLayout: React.FC<ChildNodeType> = ({ children }) => {
     const path = usePathname().split('/')[1];
-    const {toggleTheme} = useTheme()
+    const { toggleTheme } = useTheme()
+    const { sidebar, toggleSidebar } = useLayout()
     const title = HeaderItems.find(item => item.key === path)?.title
     return (
         <DashboardLayoutWrapper>
-            <DashboardSidebar width={240} collapsed={false}>
+            <DashboardSidebar width={240} collapsed={sidebar}>
                 <DashboardMenu
                     defaultSelectedKeys={[path]}
                     items={HeaderItems}
                 />
                 <UI_Button onClick={toggleTheme}>Toggle Theme</UI_Button>
+                <UI_Button onClick={toggleSidebar}>Toggle Sidebar</UI_Button>
             </DashboardSidebar>
             <Layout>
                 <DashboardHeader>
