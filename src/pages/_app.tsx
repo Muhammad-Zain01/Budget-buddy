@@ -8,7 +8,6 @@ import { dashboardRoutes } from '@/common/settings'
 import { usePathname } from 'next/navigation'
 
 
-
 export default function App({ Component, pageProps }: AppProps) {
   const path = usePathname().split('/')[1];
 
