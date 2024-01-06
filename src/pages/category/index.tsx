@@ -11,7 +11,7 @@ export type Category = {
     type: CategoryType
 }
 export default function Category() {
-    const [currentType, setCurrentType] = useState<CategoryType>('expense')
+    const [currentType, setCurrentType] = useState<CategoryType>('income')
     const categories: Category[] = [
         { icon: 'user', title: "Personal", isChecked: true, type: "expense" },
         { icon: 'food', title: "Foods & Drink", isChecked: true, type: "expense" },
@@ -38,13 +38,33 @@ export default function Category() {
         { icon: 'insurance', title: "Insurance", isChecked: true, type: "expense" },
         { icon: 'money', title: "Installment", isChecked: true, type: "expense" },
         { icon: 'expenses', title: "Other Expenses", isChecked: true, type: "expense" },
+
+        { icon: 'salary', title: "Salary", isChecked: true, type: "income" },
+        { icon: 'profits', title: "Business Income/Profit", isChecked: true, type: "income" },
+        { icon: 'investment', title: "Investment", isChecked: true, type: "income" },
+        { icon: 'commission', title: "Commission", isChecked: true, type: "income" },
+        { icon: 'retirement', title: "Pension", isChecked: true, type: "income" },
+        { icon: 'fund', title: "Allowance", isChecked: true, type: "income" },
+        { icon: 'bonus', title: "Bonus", isChecked: true, type: "income" },
+        { icon: 'wallet', title: "Pocket Money", isChecked: true, type: "income" },
+        { icon: 'freelancer', title: "Freelance", isChecked: true, type: "income" },
+        { icon: 'gift', title: "Gifts Received", isChecked: true, type: "income" },
+        { icon: 'rent', title: "Rent Received", isChecked: true, type: "income" },
+        { icon: 'loan', title: "Loan Received", isChecked: true, type: "income" },
+        { icon: 'money', title: "Other Income", isChecked: true, type: "income" },
+        { icon: 'savings', title: "Savings", isChecked: true, type: "income" },
+
+
     ]
     return (
         <div>
             <CategoryTabs changeType={setCurrentType} />
-            <CategoryWrapper>
-                {categories && categories.filter(item => item.type === currentType).map((category, index) => <CategoryCard key={index} category={category} />)}
-            </CategoryWrapper>
+            <div style={{display: 'flex', justifyContent: 'center'}}>
+
+                <CategoryWrapper>
+                    {categories && categories.filter(item => item.type === currentType).map((category, index) => <CategoryCard key={index} category={category} />)}
+                </CategoryWrapper>
+            </div>
         </div>
     )
 }
