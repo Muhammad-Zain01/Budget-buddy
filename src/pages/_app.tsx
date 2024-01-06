@@ -10,7 +10,6 @@ import { usePathname } from 'next/navigation'
 
 export default function App({ Component, pageProps }: AppProps) {
   const path = usePathname().split('/')[1];
-
   const { loading } = useLoadingState();
   return (
     <main>
