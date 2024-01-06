@@ -12,6 +12,8 @@ import { IoFastFood } from "react-icons/io5";
 import { MdOutlineEmojiTransportation } from "react-icons/md";
 import { AiFillBank } from "react-icons/ai";
 import { IoMdCash } from "react-icons/io";
+import { BsThreeDotsVertical } from "react-icons/bs";
+
 import styled from "styled-components";
 import Image from "next/image";
 
@@ -45,15 +47,6 @@ export const Food: React.FC<any> = props => <IconComponent Component={IoFastFood
 export const Transport: React.FC<any> = props => <IconComponent Component={MdOutlineEmojiTransportation} props={props} />
 export const Bank: React.FC<any> = props => <IconComponent Component={AiFillBank} props={props} />
 export const Cash: React.FC<any> = props => <IconComponent Component={IoMdCash} props={props} />
+export const Dots: React.FC<any> = props => <IconComponent Component={BsThreeDotsVertical} props={props} />
 
 
-export const Icons: React.FC<{ icon: string }> = ({ icon }) => {
-    const IconKeys: any = {
-        'user': <User size={25} />,
-        'food': <Food size={25} />,
-        'transport': <Transport size={25} />,
-        'bank': <Bank size={35} />,
-        'cash': <Cash size={35} />,
-    }
-    return IconKeys[icon]
-}
