@@ -34,6 +34,24 @@ export const DashboardContent = styled(Content)`
     color: ${props => props.theme.color};
     background: ${props => props.theme.contentBackground};
     overflow-y: scroll;
+    scrollbar-width: auto;
+    scrollbar-color: #dfe9eb;
+    &::-webkit-scrollbar {
+        width: 5px;
+        height: 8px; 
+    }
+    &::-webkit-scrollbar-thumb {
+        border-radius: 100px;
+        background-color: #a8a8a8;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background-color: #a3a3a3;
+    }
+
+    &::-webkit-scrollbar-thumb:active {
+        background-color: #9e9e9e;
+    }
 `
 
 export const DashboardSidebar = styled(Sider)`
