@@ -13,4 +13,4 @@ export const Table = dynamic(() => import("antd").then(mod => mod.Table), { ssr:
 export const Switch = dynamic(() => import("antd").then(mod => mod.Switch), { ssr: false })
 export const Tabs = dynamic(() => import("antd").then(mod => mod.Tabs), { ssr: false })
 export const Segmented = dynamic(() => import("antd").then(mod => mod.Segmented ), { ssr: false })
-
+export const Dropdown = dynamic(() => import("antd").then(mod => mod.Dropdown ), { ssr: false })
