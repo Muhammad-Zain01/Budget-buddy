@@ -4,7 +4,10 @@ import { CategoryWrapper } from "@/styles/category";
 export default function Accounts() {
     const data = [
         { icon: 'bank', title: "Bank", isChecked: true },
-        { icon: 'bank', title: "Cash", isChecked: true },
+        { icon: 'money', title: "Money", isChecked: true },
+        { icon: 'gift', title: "Cash", isChecked: true },
+        { icon: 'profits', title: "Profit", isChecked: true },
+        { icon: 'profits', title: "Profit", isChecked: true },
     ]
     return (
         <>
