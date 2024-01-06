@@ -1,9 +1,8 @@
 import React from "react";
-
-// import { Icons } from "./icon/Icon";
 import { AmmountCard as Card, AmmountHeading } from "@/styles/amount";
 import Amount from "./amount";
-import Image from "next/image";
+import { Dots } from "./icon";
+import { Icon } from "./icon";
 
 type ComponentProps = {
     data: {
@@ -17,15 +16,14 @@ const AccountCard: React.FC<ComponentProps> = ({ data }): JSX.Element => {
     return (
         <Card>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <div style={{ display: "flex", alignItems: "center", justifyContent: 'start' }}>
-                    <span style={{ padding: "0px 10px" }}>
-                        <Image src="/assets/icons/bank.png" alt="icon" width={40} height={40} />
-                    </span>
-                    <div>
-                        <AmmountHeading level={5} style={{ fontSize: 16 }}>{title}</AmmountHeading>
-                    </div>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <Icon icon={icon} size={30} />
+                    <AmmountHeading level={1} style={{ marginLeft: 12, fontSize: 16 }}>{title}</AmmountHeading>
                 </div>
-                <Amount />
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <Amount />
+                    <Dots size={16} />
+                </div>
             </div>
         </Card>
     )
