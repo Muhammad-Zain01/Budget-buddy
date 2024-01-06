@@ -7,13 +7,7 @@ export type ContextState = {
 type ProviderProps = {
     children: React.ReactNode
 }
-type ThemeTypes = {
-    theme: string;
-}
 
-const ThemeTypes: ThemeTypes = {
-    theme: 'SET_THEME'
-}
 const defaultValues: ContextState = {
     theme: 'light',
     toggleTheme: () => { },
