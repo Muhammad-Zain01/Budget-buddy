@@ -4,7 +4,7 @@ import UIThemeProvider from "./ui-theme-provider";
 import { ThemeProvider as ContextThemeProvider } from "@/context/theme";
 import ThemeProvider from "./theme-provider";
 import { Poppins } from "next/font/google";
-
+import { LayoutProvider } from "@/context/layout";
 type ComponentProps = {
     children: React.ReactNode
 }
@@ -20,11 +20,13 @@ const GlobalProvider: React.FC<ComponentProps> = ({ children }): JSX.Element => 
     return (
         <UIThemeProvider>
             <ContextThemeProvider>
-                <ThemeProvider>
-                    {children}
-                </ThemeProvider>
+                <LayoutProvider>
+                    <ThemeProvider>
+                        {children}
+                    </ThemeProvider>
+                </LayoutProvider>
             </ContextThemeProvider>
-        </UIThemeProvider>
+        </UIThemeProvider >
     )
 }
 
