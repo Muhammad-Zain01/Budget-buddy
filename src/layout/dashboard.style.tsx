@@ -58,6 +58,7 @@ export const DashboardSidebar = styled(Sider)`
     color: ${props => props.theme.color};
     background-color: ${props => props.theme.background} !important;
     padding: 5px;
+    transition: none !important;
     ul{
         border: none !important;
     }
@@ -69,6 +70,9 @@ export const DashboardSidebar = styled(Sider)`
         margin-bottom: 25px !important;
         display: flex !important;
         align-items: center;
+    }
+    .ant-menu-item{
+        transition: none !important;
     }
     
 `
