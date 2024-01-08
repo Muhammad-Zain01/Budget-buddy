@@ -50,4 +50,10 @@ export const CategoryCard = styled(Card)`
 export const CategoryHeading = styled(UI_Title)`
     margin: 0px;
     margin-top: 10px;
+    font-size: 15px !important;
+    text-align: center
+`
+export const CategoryFlexWrapper = styled.div`
+    display: flex;
+    justify-content: center
 `
