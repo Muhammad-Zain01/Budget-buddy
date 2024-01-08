@@ -1,4 +1,4 @@
-import { CategoryWrapper } from "@/styles/category";
+import { CategoryFlexWrapper, CategoryWrapper } from "@/styles/category";
 import CategoryCard from "@/components/category-card";
 import CategoryTabs from "@/components/category-tabs";
 import { useState } from "react";
@@ -53,18 +53,15 @@ export default function Category() {
         { icon: 'loan', title: "Loan Received", isChecked: true, type: "income" },
         { icon: 'money', title: "Other Income", isChecked: true, type: "income" },
         { icon: 'savings', title: "Savings", isChecked: true, type: "income" },
-
-
     ]
     return (
         <div>
             <CategoryTabs changeType={setCurrentType} />
-            <div style={{display: 'flex', justifyContent: 'center'}}>
-
+            <CategoryFlexWrapper>
                 <CategoryWrapper>
                     {categories && categories.filter(item => item.type === currentType).map((category, index) => <CategoryCard key={index} category={category} />)}
                 </CategoryWrapper>
-            </div>
+            </CategoryFlexWrapper>
         </div>
     )
 }
