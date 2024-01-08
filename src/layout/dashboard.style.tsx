@@ -11,6 +11,8 @@ export const DashboardHeader = styled(Header)`
     color: ${props => props.theme.color};
     background: ${props => props.theme.contentBackground};
     padding: 25px 30px;
+    border-bottom: 1px solid ${props => props.theme.cardBorder};
+
     height: unset !important;
 `
 export const DashboardFooter = styled(Footer)`
@@ -55,15 +57,15 @@ export const DashboardContent = styled(Content)`
 `
 
 export const DashboardSidebar = styled(Sider)`
-    color: ${props => props.theme.color};
+    color: ${props => props.theme.color} !important;
     background-color: ${props => props.theme.background} !important;
     padding: 5px;
-    transition: none !important;
+    border-right: 1px solid ${props => props.theme.cardBorder};
     ul{
         border: none !important;
     }
     a{
-        font-size: 16px !important; 
+        font-size: 14px !important; 
     }
     li{
         height: 50px !important;

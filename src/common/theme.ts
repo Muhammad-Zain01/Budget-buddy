@@ -36,7 +36,7 @@ export const Themes: Theme = {
         hoverShade: '#d3d3ff33',
         cardBackground: 'white',
         cardShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;',
-        cardBorder: '#e3e3e3',
+        cardBorder: '#d3d3d3',
     },
     "dark": {
         theme: 'dark',
