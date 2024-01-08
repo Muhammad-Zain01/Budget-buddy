@@ -1,11 +1,13 @@
+import { AmountSpan } from "@/styles/global";
 
-const Amount = () => {
+
+type ComponentProps = {
+    amount: string;
+}
+const Amount: React.FC<ComponentProps> = ({ amount }) => {
+    const currenySign = "PKR";
     return (
-        <>
-            <span style={{ fontSize: 15, marginRight: 10, fontWeight: 500 }}>
-                $123.00
-            </span>
-        </>
+        <AmountSpan>{currenySign} {amount}</AmountSpan>
     )
 }
 
