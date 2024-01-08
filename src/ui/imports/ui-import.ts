@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic"
+
 export const Layout = dynamic(() => import("antd").then(mod => mod.Layout), { ssr: false })
 export const Menu = dynamic(() => import("antd").then(mod => mod.Menu), { ssr: false })
 export const Sider = dynamic(() => import("antd").then(mod => mod.Layout.Sider), { ssr: false })
@@ -14,3 +15,4 @@ export const Switch = dynamic(() => import("antd").then(mod => mod.Switch), { ss
 export const Tabs = dynamic(() => import("antd").then(mod => mod.Tabs), { ssr: false })
 export const Segmented = dynamic(() => import("antd").then(mod => mod.Segmented ), { ssr: false })
 export const Dropdown = dynamic(() => import("antd").then(mod => mod.Dropdown ), { ssr: false })
+export const Tag = dynamic(() => import("antd").then(mod => mod.Tag ), { ssr: false })
