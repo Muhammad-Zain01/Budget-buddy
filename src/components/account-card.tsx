@@ -1,29 +1,39 @@
 import React from "react";
-import { AmmountCard as Card, AmmountHeading } from "@/styles/amount";
+import { AccountCard as Card, AccountHeading, AccountDetailDiv, FlexWrapper } from "@/styles/account";
 import Amount from "./amount";
 import { Icon } from "./icon";
-import AccountMenu from "./account-menu";
+import DropMenu from "./drop-menu";
+import { MenuProps } from "antd";
 type ComponentProps = {
     data: {
         icon: string;
         title: string;
         isChecked: boolean;
+        amount: string;
     }
 }
 const AccountCard: React.FC<ComponentProps> = ({ data }): JSX.Element => {
-    const { icon, title, isChecked } = data
+    const { icon, title, isChecked, amount } = data
+
+    const AmountMenu: MenuProps['items'] = [
+        {
+            key: '1',
+            label: "Active",
+        }
+    ];
+
     return (
         <Card>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <div style={{ display: 'flex', alignItems: 'center' }}>
+            <AccountDetailDiv>
+                <FlexWrapper>
                     <Icon icon={icon} size={30} />
-                    <AmmountHeading level={1} style={{ marginLeft: 12, fontSize: 16 }}>{title}</AmmountHeading>
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <Amount />
-                    <AccountMenu />
-                </div>
-            </div>
+                    <AccountHeading level={1}>{title}</AccountHeading>
+                </FlexWrapper>
+                <FlexWrapper>
+                    <Amount amount={amount} />
+                    <DropMenu items={AmountMenu} />
+                </FlexWrapper>
+            </AccountDetailDiv>
         </Card>
     )
 
