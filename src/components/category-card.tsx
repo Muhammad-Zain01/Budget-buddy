@@ -16,11 +16,10 @@ const CategoryCard: React.FC<ComponentProps> = ({ category }): JSX.Element => {
     return (
         <Card>
             <Icon icon={icon} size={50} />
-            <CategoryHeading level={5} style={{ fontSize: 15, textAlign: 'center' }}>{title}</CategoryHeading>
+            <CategoryHeading level={5} style={{  }}>{title}</CategoryHeading>
             <UI_Switch size="small" defaultChecked={isChecked} />
         </Card>
     )
-
 }
 
 export default CategoryCard;
