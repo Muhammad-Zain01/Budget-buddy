@@ -25,7 +25,7 @@ const SegemnetedDiv = styled.div`
 `
 
 type ComponnetProps = {
-    changeType: Dispatch<SetStateAction<CategoryType | string>>
+    changeType: Dispatch<SetStateAction<CategoryType>>
 }
 const CategoryTabs: React.FC<ComponnetProps> = ({ changeType }): JSX.Element => {
     return (
