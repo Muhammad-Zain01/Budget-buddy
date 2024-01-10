@@ -1,13 +1,12 @@
 import styled from "styled-components";
-import { useLayout } from "@/context/layout";
 const LoaderWrapper = styled.div`
-    position: absolute;
-    width: calc(100vw - ${props => props.layout === 1 ? 80 : 240}px);
+    /* position: absolute; */
+    width:100%;
+    height: 100%;
     top:0;
     right:0;
-    height: 100vh;
     background: rgb(255 255 255 / 0%);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     .dot-spinner {
@@ -116,23 +115,21 @@ const LoaderWrapper = styled.div`
 
 `
 const Loader = () => {
-    const { sidebar } = useLayout();
-    console.log(sidebar);
-    return (
-        <LoaderWrapper layout={sidebar ? 1 : 0}>
-            <div style={{width: "100%", justifyContent: 'center', display :'flex', alignItems: 'center', height:"100%"}}>
-                <div className="dot-spinner">
-                    <div className="dot-spinner__dot"></div>
-                    <div className="dot-spinner__dot"></div>
-                    <div className="dot-spinner__dot"></div>
-                    <div className="dot-spinner__dot"></div>
-                    <div className="dot-spinner__dot"></div>
-                    <div className="dot-spinner__dot"></div>
-                    <div className="dot-spinner__dot"></div>
-                    <div className="dot-spinner__dot"></div>
-                </div>
-            </div>
-        </LoaderWrapper>
-    )
+  return (
+    <LoaderWrapper >
+      <div style={{ width: "100%", justifyContent: 'center', display: 'flex', alignItems: 'center', height: "100%" }}>
+        <div className="dot-spinner">
+          <div className="dot-spinner__dot"></div>
+          <div className="dot-spinner__dot"></div>
+          <div className="dot-spinner__dot"></div>
+          <div className="dot-spinner__dot"></div>
+          <div className="dot-spinner__dot"></div>
+          <div className="dot-spinner__dot"></div>
+          <div className="dot-spinner__dot"></div>
+          <div className="dot-spinner__dot"></div>
+        </div>
+      </div>
+    </LoaderWrapper>
+  )
 }
 export default Loader;
