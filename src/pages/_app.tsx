@@ -1,16 +1,14 @@
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import DasboardLayout from '@/layout/dashboard.layout'
-import useLoadingState from '@/hooks/useLoadingState'
 import GlobalProvider from '@/ui/provider/provider'
-import Loader from '@/components/loader'
 import { dashboardRoutes } from '@/common/settings'
 import { usePathname } from 'next/navigation'
 
 
 export default function App({ Component, pageProps }: AppProps) {
   const path = usePathname().split('/')[1];
-  const { loading } = useLoadingState();
+  
   return (
     <main>
       <Head>
@@ -22,7 +20,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <GlobalProvider>
         {
           dashboardRoutes.includes(path) ? (
-            <DasboardLayout>{!loading ? <Component {...pageProps} /> : <Loader />}</DasboardLayout>
+            <DasboardLayout><Component {...pageProps} /></DasboardLayout>
           ) : (<Component {...pageProps} />)
         }
       </GlobalProvider>
