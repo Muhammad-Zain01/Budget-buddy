@@ -10,7 +10,10 @@ export const DashboardLayoutWrapper = styled(Layout)`
 export const DashboardHeader = styled(Header)`
     color: ${props => props.theme.color};
     background: ${props => props.theme.contentBackground};
-    padding: 25px 30px;
+    padding: 10px 30px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
     border-bottom: 1px solid ${props => props.theme.cardBorder};
 
     height: unset !important;
