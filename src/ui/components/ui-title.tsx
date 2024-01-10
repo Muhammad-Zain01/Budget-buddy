@@ -5,7 +5,7 @@ import { TitleProps } from "antd/es/typography/Title";
 
 const TitleWrapper = styled(Title)`
     color: ${props => props.theme.color} !important;
-    font-weight: 600 !important;
+    font-weight: 500 !important;
 `
 
 const UI_Title: React.FC<ChildNodeType | TitleProps> = ({ children, ...props }) => {
