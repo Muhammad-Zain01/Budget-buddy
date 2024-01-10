@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Layout } from '@/ui/imports/ui-import';
 import { DashboardContent, DashboardFooter, DashboardHeader, DashboardHeaderHeading, DashboardLayoutWrapper, DashboardMenu, DashboardSidebar } from './dashboard.style';
@@ -9,6 +9,9 @@ import { usePathname } from 'next/navigation';
 import UI_Button from '@/ui/components/ui-button';
 import { useTheme } from '@/context/theme';
 import { useLayout } from '@/context/layout';
+import Loader from '@/components/loader';
+import useLoadingState from '@/hooks/useLoadingState';
+import UserDropDown from '@/components/user-dropdown';
 const HeaderItems = [
     {
         key: 'dashboard',
@@ -38,13 +41,17 @@ const HeaderItems = [
 
 const DasboardLayout: React.FC<ChildNodeType> = ({ children }) => {
     const path = usePathname().split('/')[1];
-    const { toggleTheme } = useTheme()
     const { sidebar, toggleSidebar } = useLayout()
-    const title = HeaderItems.find(item => item.key === path)?.title
+    const { loading } = useLoadingState();
+    const [pageKey, setKey] = useState(path)
+    const { toggleTheme } = useTheme()
+
+    const title = HeaderItems.find(item => pageKey === item.key)?.title
     return (
         <DashboardLayoutWrapper>
             <DashboardSidebar width={240} collapsed={sidebar}>
                 <DashboardMenu
+                    onClick={(e) => { setKey(e.key) }}
                     defaultSelectedKeys={[path]}
                     items={HeaderItems}
                 />
@@ -54,9 +61,15 @@ const DasboardLayout: React.FC<ChildNodeType> = ({ children }) => {
             <Layout>
                 <DashboardHeader>
                     <DashboardHeaderHeading level={3}>{title}</DashboardHeaderHeading>
+                    <div>
+                        <UserDropDown />
+                    </div>
                 </DashboardHeader>
+
                 <DashboardContent>
-                    {children}
+                    {
+                        loading ? <Loader /> : <>{children}</>
+                    }
                 </DashboardContent>
                 <DashboardFooter>
                     All Right Reservered By Muhammad Zain  &nbsp;
