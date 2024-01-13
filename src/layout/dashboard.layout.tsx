@@ -12,6 +12,7 @@ import { useLayout } from '@/context/layout';
 import Loader from '@/components/loader';
 import useLoadingState from '@/hooks/useLoadingState';
 import UserDropDown from '@/components/user-dropdown';
+import Timeline from '@/components/timeline';
 const HeaderItems = [
     {
         key: 'dashboard',
@@ -61,7 +62,8 @@ const DasboardLayout: React.FC<ChildNodeType> = ({ children }) => {
             <Layout>
                 <DashboardHeader>
                     <DashboardHeaderHeading level={3}>{title}</DashboardHeaderHeading>
-                    <div>
+                    <div style={{display: 'flex', alignItems: 'center'}}>
+                        <Timeline />
                         <UserDropDown />
                     </div>
                 </DashboardHeader>
