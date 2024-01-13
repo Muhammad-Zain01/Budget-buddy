@@ -5,7 +5,7 @@ type ComponentProps = {
     amount: string;
 }
 const Amount: React.FC<ComponentProps> = ({ amount }) => {
-    const currenySign = "PKR";
+    const currenySign = "$";
     return (
         <AmountSpan>{currenySign} {amount}</AmountSpan>
     )
