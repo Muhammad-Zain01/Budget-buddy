@@ -14,6 +14,7 @@ export const CategoryCard = styled(Card)`
     color: ${(props) => props.theme.color};
     border: 1px solid ${props => props.theme.cardBorder};
     padding: 10px 0px;
+    position: relative;
 
     &:hover{
         border: 1px solid #949494;
@@ -51,7 +52,12 @@ export const CategoryHeading = styled(UI_Title)`
     margin: 0px;
     margin-top: 10px;
     font-size: 15px !important;
-    text-align: center
+    text-align: center;
+`
+export const CategoryMenu = styled.div`
+    position: absolute;
+    top: 15px;
+    right: 15px;
 `
 export const CategoryFlexWrapper = styled.div`
     display: flex;
