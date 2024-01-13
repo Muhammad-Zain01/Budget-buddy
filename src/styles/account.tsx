@@ -14,6 +14,9 @@ export const AccountCard = styled(Card)`
     color: ${(props) => props.theme.color};
     border: 1px solid ${props => props.theme.cardBorder};
     /* padding: 0px 0px; */
+    &:hover{
+        border: 1px solid #949494;
+    }
 `
 
 export const AccountHeading = styled(UI_Title)`
