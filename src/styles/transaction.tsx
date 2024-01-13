@@ -11,7 +11,9 @@ export const TransactionCard = styled(Card)`
     background-color: ${(props) => props.theme.cardBackground};
     color: ${(props) => props.theme.color};
     border: 1px solid ${props => props.theme.cardBorder};
-    /* padding: 0px 0px; */
+    &:hover{
+        border: 1px solid #949494;
+    }
 `
 
 export const TransactionHeading = styled(UI_Title)`
