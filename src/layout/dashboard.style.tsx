@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Footer, Header, Layout, Content, Sider, Menu } from "@/ui/imports/ui-import";
+import { Footer, Header, Layout, Content, Sider, Menu, Avatar, DatePicker } from "@/ui/imports/ui-import";
 import UI_Title from "@/ui/components/ui-title";
 
 export const DashboardLayoutWrapper = styled(Layout)`
@@ -96,4 +96,31 @@ export const DashboardMenu = styled(Menu)`
         background: linear-gradient(120deg, #3563c5,#2250b2);
         color: white !important;
     }
+`
+
+export const UserAvatar = styled(Avatar)`
+    background-color: ${props => props.theme.theme === 'dark' ? '#f2f2f2' : '#172432d4'} !important;
+    color:${props => props.theme.theme === 'dark' ? '#172432d4' : '#f2f2f2'} !important;
+    border: 1px solid black;
+    font-size: 15px !important;
+    cursor: pointer;
+`
+
+export const TimelineField = styled(DatePicker)`
+    background-color: ${props => props.theme.background};
+    color: ${props => props.theme.color} !important;
+    border: 1px solid ${props => props.theme.cardBorder};
+    padding: 10px 10px 10px 15px;
+    width: 300px;
+    & .ant-picker-focused{
+        border: none !important;
+        box-shadow: none !important;
+    }
+    &:hover{
+        border-color: #949494;
+    }
+    & input, input::placeholder,.ant-picker-suffix { 
+        color: ${props => props.theme.color} !important;
+    }
+
 `
