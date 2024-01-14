@@ -1,4 +1,4 @@
-import { UserAvatar } from "@/layout/dashboard.style";
+import { UserAvatar } from "@/styles/dashboard";
 import { MenuProps } from "antd";
 import UI_Dropdown from "@/ui/components/ui-dropdown";
 
@@ -17,7 +17,7 @@ const UserDropDown: React.FC = (): JSX.Element => {
     return (
         <div>
             <UI_Dropdown menu={{ items: UserMenu }} trigger={['click']}>
-                <UserAvatar style={{ marginLeft: 50 }} size={42} src={false && "https://api.dicebear.com/7.x/miniavs/svg?seed=30"}>
+                <UserAvatar size={42} src={false && "https://api.dicebear.com/7.x/miniavs/svg?seed=30"}>
                     ZM
                 </UserAvatar>
             </UI_Dropdown>
