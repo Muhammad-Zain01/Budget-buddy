@@ -12,13 +12,24 @@ import { IoFastFood } from "react-icons/io5";
 import { MdOutlineEmojiTransportation } from "react-icons/md";
 import { AiFillBank } from "react-icons/ai";
 import { IoMdCash } from "react-icons/io";
+
 import { BsThreeDotsVertical } from "react-icons/bs";
+import { FaWallet } from "react-icons/fa6";
+import { GiReceiveMoney } from "react-icons/gi";
+import { MdSavings } from "react-icons/md";
+import { GiTakeMyMoney } from "react-icons/gi";
+import { MdOutlineLightMode } from "react-icons/md";
+import { MdOutlineDarkMode } from "react-icons/md";
+import { GoGoal } from "react-icons/go";
+import { FaGear } from "react-icons/fa6";
+import { FaChartSimple } from "react-icons/fa6";
+
 
 import styled from "styled-components";
 import Image from "next/image";
 
 const IconImage = styled(Image)`
-    ${props => props.theme.theme === 'dark' && "filter: brightness(0) invert(1);" }
+    ${props => props.theme.theme === 'dark' && "filter: brightness(0) invert(1);"}
 `
 type ComponentProps = {
     icon: string;
@@ -30,8 +41,18 @@ export const Icon: React.FC<ComponentProps> = ({ icon, size }) => {
 
 
 
-export const IconComponent: React.FC<any> = ({ Component, props }) => (<Component style={{ marginRight: props.right, fontSize: props.size }} {...props} />)
+export const IconComponent: React.FC<any> = ({ Component, props }) => (<Component style={{ marginRight: props.right,marginLeft: props.left, color: props.color, fontSize: props.size, ...props.style }} {...props} />)
 
+
+export const LightMode: React.FC<any> = props => <IconComponent Component={MdOutlineLightMode} props={props} />
+export const DarkMode: React.FC<any> = props => <IconComponent Component={MdOutlineDarkMode} props={props} />
+export const Goals: React.FC<any> = props => <IconComponent Component={GoGoal} props={props} />
+export const Settings: React.FC<any> = props => <IconComponent Component={FaGear} props={props} />
+export const Insights: React.FC<any> = props => <IconComponent Component={FaChartSimple} props={props} />
+export const Expense: React.FC<any> = props => <IconComponent Component={GiTakeMyMoney} props={props} />
+export const Wallet: React.FC<any> = props => <IconComponent Component={FaWallet} props={props} />
+export const Income: React.FC<any> = props => <IconComponent Component={GiReceiveMoney} props={props} />
+export const Savings: React.FC<any> = props => <IconComponent Component={MdSavings} props={props} />
 export const Category: React.FC<any> = props => <IconComponent Component={MdWindow} props={props} />
 export const Dashboard: React.FC<any> = props => <IconComponent Component={BiHomeAlt2} props={props} />
 export const Transaction: React.FC<any> = props => <IconComponent Component={GrTransaction} props={props} />
