@@ -1,1 +1,1 @@
-export const dashboardRoutes = ["dashboard", "category", "account", "transaction"]
+export const dashboardRoutes = ["dashboard", "categories", "accounts", "transactions", 'goals','settings', 'insights']
