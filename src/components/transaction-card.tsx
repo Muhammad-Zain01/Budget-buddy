@@ -52,7 +52,7 @@ const TransactionCard: React.FC<ComponentProps> = ({ data }): JSX.Element => {
                     tags && (
                         <TransactionTags>
                             {
-                                tags.map(item => <Tag color="blue">{item}</Tag>)
+                                tags.map((item, index) => <Tag key={index} color="blue">{item}</Tag>)
                             }
                         </TransactionTags>
                     )

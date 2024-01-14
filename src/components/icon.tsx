@@ -41,7 +41,7 @@ export const Icon: React.FC<ComponentProps> = ({ icon, size }) => {
 
 
 
-export const IconComponent: React.FC<any> = ({ Component, props }) => (<Component style={{ marginRight: props.right,marginLeft: props.left, color: props.color, fontSize: props.size, ...props.style }} {...props} />)
+export const IconComponent: React.FC<any> = ({ Component, props }) => (<Component style={{ transition: 'none', marginRight: props.right,marginLeft: props.left, color: props.color, fontSize: props.size, ...props.style }} {...props} />)
 
 
 export const LightMode: React.FC<any> = props => <IconComponent Component={MdOutlineLightMode} props={props} />

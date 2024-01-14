@@ -73,29 +73,33 @@ export const DashboardSidebar = styled(Sider)`
     }
     li{
         height: 50px !important;
-        margin-bottom: 15px !important;
+        margin-bottom: 10px !important;
         display: flex !important;
         align-items: center;
     }
-    .ant-menu-item{
-        transition: none !important;
-    }
-    
 `
+
 export const DashboardHeaderHeading = styled(UI_Title)`
     margin: 0px !important;
 `
 export const DashboardMenu = styled(Menu)`
     color: ${props => props.theme.color} !important;
     background-color: transparent !important;
-
+    transition: none !important;
+    animation: none !important;
     .ant-menu-item-active{
-        background-color: ${props => props.theme.hoverShade} !important;
+        background-color: #8c8c8c2e !important;
         color: ${props => props.theme.color} !important;
     }
     .ant-menu-item-selected{
         background: linear-gradient(120deg, #3563c5,#2250b2);
         color: white !important;
+    }
+    .ant-menu-item {
+        transition: none !important;
+    }
+    .ant-menu-title-content {
+        transition: none !important;
     }
 `
 
@@ -138,7 +142,7 @@ export const DashboardCardWrapper = styled.div`
     display: flex;
     justify-content: start;
     align-items: center;
-` 
+`
 export const DIconWraper = styled.div`
     margin-right: 15px;
 `

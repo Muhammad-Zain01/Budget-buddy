@@ -3,7 +3,7 @@ import { Layout } from '@/ui/imports/ui-import';
 import { DashboardContent, DashboardFooter, DashboardHeader, DashboardHeaderHeading, DashboardLayoutWrapper, DashboardMenu, DashboardSidebar, HeaderItemsWraper } from '../styles/dashboard';
 import { ChildNodeType } from '@/common/types';
 import { Account, Category, Dashboard, Github, Goals, Insights, LinkedIn, Settings, Transaction } from '@/components/icon';
-import Link from 'next/link';
+import { DashboardLink as Link } from '@/styles/global';
 import { usePathname } from 'next/navigation';
 import UI_Button from '@/ui/components/ui-button';
 import { useLayout } from '@/context/layout';
@@ -21,19 +21,19 @@ const HeaderItems = [
         label: <Link href="/dashboard">Dashboard</Link>,
     },
     {
-        key: 'category',
+        key: 'categories',
         title: "Categories",
         icon: <Category right={5} size={21} />,
         label: <Link href="/categories">Categories</Link>,
     },
     {
-        key: 'account',
+        key: 'accounts',
         title: "Accounts",
         icon: <Account right={5} size={21} />,
         label: <Link href="/accounts">Accounts</Link>,
     },
     {
-        key: 'transaction',
+        key: 'transactions',
         title: "Transactions",
         icon: <Transaction right={5} size={21} />,
         label: <Link href="/transactions">Transactions</Link>,
