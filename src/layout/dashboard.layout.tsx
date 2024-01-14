@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-
 import { Layout } from '@/ui/imports/ui-import';
-import { DashboardContent, DashboardFooter, DashboardHeader, DashboardHeaderHeading, DashboardLayoutWrapper, DashboardMenu, DashboardSidebar } from './dashboard.style';
+import { DashboardContent, DashboardFooter, DashboardHeader, DashboardHeaderHeading, DashboardLayoutWrapper, DashboardMenu, DashboardSidebar, HeaderItemsWraper } from '../styles/dashboard';
 import { ChildNodeType } from '@/common/types';
-import { Account, Category, Dashboard, Github, LinkedIn, Transaction } from '@/components/icon';
+import { Account, Category, Dashboard, Github, Goals, Insights, LinkedIn, Settings, Transaction } from '@/components/icon';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import UI_Button from '@/ui/components/ui-button';
-import { useTheme } from '@/context/theme';
 import { useLayout } from '@/context/layout';
 import Loader from '@/components/loader';
 import useLoadingState from '@/hooks/useLoadingState';
 import UserDropDown from '@/components/user-dropdown';
 import Timeline from '@/components/timeline';
+import ThemeShifter from '@/components/theme-shifter';
+
 const HeaderItems = [
     {
         key: 'dashboard',
@@ -24,19 +24,37 @@ const HeaderItems = [
         key: 'category',
         title: "Categories",
         icon: <Category right={5} size={21} />,
-        label: <Link href="/category">Categories</Link>,
+        label: <Link href="/categories">Categories</Link>,
     },
     {
         key: 'account',
         title: "Accounts",
         icon: <Account right={5} size={21} />,
-        label: <Link href="/account">Accounts</Link>,
+        label: <Link href="/accounts">Accounts</Link>,
     },
     {
         key: 'transaction',
         title: "Transactions",
         icon: <Transaction right={5} size={21} />,
-        label: <Link href="/transaction">Transactions</Link>,
+        label: <Link href="/transactions">Transactions</Link>,
+    },
+    {
+        key: 'goals',
+        title: "Goals",
+        icon: <Goals right={5} size={21} />,
+        label: <Link href="/goals">Goals</Link>,
+    },
+    {
+        key: 'insights',
+        title: "Insights",
+        icon: <Insights right={5} size={21} />,
+        label: <Link href="/insights">Insigths</Link>,
+    },
+    {
+        key: 'settings',
+        title: "Settings",
+        icon: <Settings right={5} size={21} />,
+        label: <Link href="/settings">Settings</Link>,
     },
 ]
 
@@ -45,7 +63,6 @@ const DasboardLayout: React.FC<ChildNodeType> = ({ children }) => {
     const { sidebar, toggleSidebar } = useLayout()
     const { loading } = useLoadingState();
     const [pageKey, setKey] = useState(path)
-    const { toggleTheme } = useTheme()
 
     const title = HeaderItems.find(item => pageKey === item.key)?.title
     return (
@@ -56,22 +73,20 @@ const DasboardLayout: React.FC<ChildNodeType> = ({ children }) => {
                     defaultSelectedKeys={[path]}
                     items={HeaderItems}
                 />
-                <UI_Button onClick={toggleTheme}>Toggle Theme</UI_Button>
                 <UI_Button onClick={toggleSidebar}>Toggle Sidebar</UI_Button>
             </DashboardSidebar>
             <Layout>
                 <DashboardHeader>
                     <DashboardHeaderHeading level={3}>{title}</DashboardHeaderHeading>
-                    <div style={{display: 'flex', alignItems: 'center'}}>
+                    <HeaderItemsWraper>
                         <Timeline />
+                        <ThemeShifter />
                         <UserDropDown />
-                    </div>
+                    </HeaderItemsWraper>
                 </DashboardHeader>
 
                 <DashboardContent>
-                    {
-                        loading ? <Loader /> : <>{children}</>
-                    }
+                    {loading ? <Loader /> : <>{children}</>}
                 </DashboardContent>
                 <DashboardFooter>
                     All Right Reservered By Muhammad Zain  &nbsp;
