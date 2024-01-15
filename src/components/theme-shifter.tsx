@@ -5,9 +5,9 @@ import { ThemeShiftSpan } from "@/styles/dashboard";
 const ThemeShifter: React.FC = (): JSX.Element => {
     const {theme, toggleTheme} = useTheme()
     return (
-        <ThemeShiftSpan>
-            {theme === 'dark' && <LightMode onClick={toggleTheme} size={25}  />}
-            {theme === 'light' && <DarkMode onClick={toggleTheme} size={25}/>}
+        <ThemeShiftSpan onClick={toggleTheme}>
+            {theme === 'dark' && <LightMode size={25}  />}
+            {theme === 'light' && <DarkMode size={25}/>}
         </ThemeShiftSpan>
     )
 }
