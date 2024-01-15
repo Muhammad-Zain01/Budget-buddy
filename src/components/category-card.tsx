@@ -1,10 +1,7 @@
 import React from "react";
-import { CategoryCard as Card, CategoryHeading, CategoryMenu } from "@/styles/category";
+import { CategoryCard as Card, CategoryHeading } from "@/styles/category";
 import { Icon } from "./icon";
-import UI_Switch from "@/ui/components/ui-switch";
-import Amount from "./amount";
-import DropMenu from "./drop-menu";
-import { MenuProps } from "antd";
+import CategoryControlMenu from "./category-control-menu";
 
 type ComponentProps = {
     category: {
@@ -16,20 +13,12 @@ type ComponentProps = {
 const CategoryCard: React.FC<ComponentProps> = ({ category }): JSX.Element => {
     const { icon, title, isChecked } = category
 
-    const CategoryMenuItems: MenuProps['items'] = [{
-        key: '1',
-        label: "Active",
-    }
-    ];
+  
     return (
         <Card>
-            <CategoryMenu>
-                <DropMenu items={CategoryMenuItems} />
-            </CategoryMenu>
-            <Icon icon={icon} size={50} />
+            <CategoryControlMenu />
+            <Icon icon={icon} size={50} style={{marginTop: 10}} />
             <CategoryHeading level={5} style={{}}>{title}</CategoryHeading>
-            {/* <Amount amount={'123'} /> */}
-            {/* <UI_Switch size="small" defaultChecked={isChecked} /> */}
         </Card>
     )
 }
