@@ -13,7 +13,7 @@ export const CategoryCard = styled(Card)`
     background-color: ${(props) => props.theme.cardBackground};
     color: ${(props) => props.theme.color};
     border: 1px solid ${props => props.theme.cardBorder};
-    padding: 10px 0px;
+    padding: 15px 0px;
     position: relative;
 
     &:hover{
@@ -49,17 +49,32 @@ export const CategoryCard = styled(Card)`
 `
 
 export const CategoryHeading = styled(UI_Title)`
-    margin: 0px;
+    margin: 0px !important;
     margin-top: 10px;
     font-size: 15px !important;
     text-align: center;
 `
-export const CategoryMenu = styled.div`
-    position: absolute;
-    top: 15px;
-    right: 15px;
-`
+
 export const CategoryFlexWrapper = styled.div`
     display: flex;
-    justify-content: center
+    justify-content: center;
+`
+export const ContegoryMenuIconWrapper = styled.div`
+    position: absolute;
+    top: 10px;
+    display: flex;
+    align-items: center;
+    right: 15px;
+    
+`
+export const ContegoryMenuIconSpan = styled.span`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px;
+    border-radius: 100%;
+    &:hover{
+        background-color: #dadada51;
+    }
+    
 `
