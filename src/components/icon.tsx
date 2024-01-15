@@ -23,10 +23,12 @@ import { MdOutlineDarkMode } from "react-icons/md";
 import { GoGoal } from "react-icons/go";
 import { FaGear } from "react-icons/fa6";
 import { FaChartSimple } from "react-icons/fa6";
+import { BsFillTrash3Fill } from "react-icons/bs";
 
 
 import styled from "styled-components";
 import Image from "next/image";
+import React from "react";
 
 const IconImage = styled(Image)`
     ${props => props.theme.theme === 'dark' && "filter: brightness(0) invert(1);"}
@@ -34,9 +36,10 @@ const IconImage = styled(Image)`
 type ComponentProps = {
     icon: string;
     size: number;
+    style?: React.CSSProperties
 }
-export const Icon: React.FC<ComponentProps> = ({ icon, size }) => {
-    return <IconImage src={`/assets/icons/${icon}.png`} alt={icon} width={size} height={size} />
+export const Icon: React.FC<ComponentProps> = ({ icon, size, style }) => {
+    return <IconImage src={`/assets/icons/${icon}.png`} alt={icon} style={style} width={size} height={size} />
 }
 
 
@@ -62,6 +65,7 @@ export const LinkedIn: React.FC<any> = props => <IconComponent Component={FaLink
 
 export const ShowIcon: React.FC<any> = props => <IconComponent Component={FaEye} props={props} />
 export const HiddenIcon: React.FC<any> = props => <IconComponent Component={IoMdEyeOff} props={props} />
+export const Delete: React.FC<any> = props => <IconComponent Component={BsFillTrash3Fill} props={props} />
 
 export const User: React.FC<any> = props => <IconComponent Component={FaUser} props={props} />
 export const Food: React.FC<any> = props => <IconComponent Component={IoFastFood} props={props} />
