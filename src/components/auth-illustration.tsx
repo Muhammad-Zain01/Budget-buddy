@@ -1,4 +1,4 @@
-import { AuthBox } from "@/styles/auth"
+import { AuthBox, AuthIllustrationImage } from "@/styles/auth"
 import Image from "next/image"
 
 type ComponentProps = {
@@ -6,9 +6,23 @@ type ComponentProps = {
 }
 export const AuthIllustration: React.FC<ComponentProps> = ({ type }) => {
     return (
-        <AuthBox>
-            {type === 'register' && <Image src={'/assets/illustrations/register.svg'} alt="sign_up" width={600} height={600} />}
-            {type === 'login' && <Image src={'/assets/illustrations/register.svg'} alt="sign_up" width={600} height={600} />}
+        <AuthBox type="illustration">
+            {
+                type === 'register' &&
+                <AuthIllustrationImage
+                    src={'/assets/illustrations/two.svg'}
+                    alt="sign_up"
+                    fill={true}
+                />
+            }
+            {
+                type === 'login' &&
+                <AuthIllustrationImage
+                    src={'/assets/illustrations/two.svg'}
+                    alt="sign_in"
+                    fill={true}
+                />
+            }
         </AuthBox>
     )
 }
