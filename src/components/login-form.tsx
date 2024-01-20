@@ -1,34 +1,44 @@
-import { AuthBox, AuthFormWrapper } from "@/styles/auth"
-import UI_Button from "@/ui/components/ui-button"
+import { AuthBox, AuthButton, AuthChanger, AuthFormWrapper, AuthHeadingWrapper, AuthLabel, AuthTagline, AuthTitle, FieldsWrapper } from "@/styles/auth"
 import UI_Input from "@/ui/components/ui-input"
 import { UI_Text } from "@/ui/components/ui-text"
-import UI_Title from "@/ui/components/ui-title"
 import Link from "next/link"
+import { Email, Password } from "./icon"
+import { useState } from "react"
 
 export const LoginForm: React.FC = () => {
+    const [username, setUsername] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
+    
+    const resetValues = () => {
+        setUsername('');
+        setPassword('');
+    }
+    
+    const onSubmit = () => {
+        console.log("username", username)
+        console.log("password", password)
+    }
     return (
         <AuthBox>
             <AuthFormWrapper>
-                <UI_Title>Log in to your Account</UI_Title>
-                <UI_Text>Welcome back! Select method to log in:</UI_Text>
-                <UI_Button type="primary" style={{ width: "100%" }}>
-                    Login In With google
-                </UI_Button>
-                <div>
-                    <UI_Text>Email</UI_Text>
-                    <UI_Input placeholder="Enter Your Email" />
-                </div>
-                <div>
-                    <UI_Text>Password</UI_Text>
-                    <UI_Input placeholder="Enter Your Password" type="password" />
-                </div>
-                <UI_Button type="primary" style={{ width: "100%" }}>
+                <AuthHeadingWrapper>
+                    <AuthTitle level={2}>Log in to your Account</AuthTitle>
+                    <AuthTagline>Welcome back! Select method to log in:</AuthTagline>
+                </AuthHeadingWrapper>
+                <FieldsWrapper>
+                    <AuthLabel>Email or Username</AuthLabel>
+                    <UI_Input prefix={<Email color="#bcbcbc" size={18} right={5} />} placeholder="Enter Your Email or Username" onChange={(e) => setUsername(e?.target?.value)} />
+                </FieldsWrapper>
+                <FieldsWrapper >
+                    <AuthLabel>Password</AuthLabel>
+                    <UI_Input prefix={<Password color="#bcbcbc" size={18} right={5} />} placeholder="Enter Your Password" type="password" onChange={(e) => setPassword(e?.target?.value)} />
+                </FieldsWrapper>
+                <AuthButton onClick={onSubmit}>
                     Login
-                </UI_Button>
-
-                <UI_Text>
+                </AuthButton>
+                <AuthChanger>
                     Don&apos;t have an account? <Link href="/register">Create an account</Link>
-                </UI_Text>
+                </AuthChanger>
             </AuthFormWrapper>
         </AuthBox>
     )
