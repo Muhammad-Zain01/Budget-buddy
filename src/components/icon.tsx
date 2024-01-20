@@ -25,6 +25,9 @@ import { FaGear } from "react-icons/fa6";
 import { FaChartSimple } from "react-icons/fa6";
 import { BsFillTrash3Fill } from "react-icons/bs";
 
+import { MdOutlineEmail } from "react-icons/md";
+import { RiLockPasswordLine } from "react-icons/ri";
+import { FaRegCircleUser } from "react-icons/fa6";
 
 import styled from "styled-components";
 import Image from "next/image";
@@ -45,6 +48,11 @@ export const Icon: React.FC<ComponentProps> = ({ icon, size, style }) => {
 
 
 export const IconComponent: React.FC<any> = ({ Component, props }) => (<Component style={{ transition: 'none', marginRight: props.right,marginLeft: props.left, color: props.color, fontSize: props.size, ...props.style }} {...props} />)
+
+
+export const Email: React.FC<any> = props => <IconComponent Component={MdOutlineEmail} props={props} />
+export const Password: React.FC<any> = props => <IconComponent Component={RiLockPasswordLine} props={props} />
+export const UserOutlined: React.FC<any> = props => <IconComponent Component={FaRegCircleUser} props={props} />
 
 
 export const LightMode: React.FC<any> = props => <IconComponent Component={MdOutlineLightMode} props={props} />
