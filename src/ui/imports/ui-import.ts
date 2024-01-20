@@ -18,3 +18,5 @@ export const Dropdown = dynamic(() => import("antd").then(mod => mod.Dropdown), 
 export const Tag = dynamic(() => import("antd").then(mod => mod.Tag), { ssr: false })
 export const Avatar = dynamic(() => import("antd").then(mod => mod.Avatar), { ssr: false })
 export const DatePicker = dynamic(() => import("antd").then(mod => mod.DatePicker), { ssr: false })
+export const Input = dynamic(() => import("antd").then(mod => mod.Input), { ssr: false })
+export const FormItem = dynamic(() => import("antd").then(mod => mod.Form.Item), { ssr: false })
