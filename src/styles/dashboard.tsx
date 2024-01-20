@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { Footer, Header, Layout, Content, Sider, Menu, Avatar, DatePicker, Card } from "@/ui/imports/ui-import";
 import UI_Title from "@/ui/components/ui-title";
-import { Wallet } from "@/components/icon";
 
 export const DashboardLayoutWrapper = styled(Layout)`
     overflow: hidden;
