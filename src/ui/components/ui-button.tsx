@@ -4,8 +4,8 @@ import { ButtonProps } from "antd";
 import { Button } from "../imports/ui-import";
 
 const MainButton = styled(Button)`
-    color: ${(props) => props.theme.color};
-    background-color: ${(props) => props.theme.background};
+    color: ${(props) => props.type != 'primary' && props.theme.color};
+    background-color: ${(props) => props.type != 'primary' && props.theme.background};
 `
 
 const UI_Button: React.FC<ChildNodeType | ButtonProps> = ({ children, ...props }) => {
