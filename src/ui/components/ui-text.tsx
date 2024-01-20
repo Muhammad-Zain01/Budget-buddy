@@ -1,8 +1,9 @@
-import { ChildNodeType } from "@/common/types"
+import { ChildNodeType } from "@/common/types";
 import { Text } from "../imports/ui-import"
+import { TextProps } from "antd/es/typography/Text"
 
-export const UI_Text: React.FC<ChildNodeType> = ({ children }) => {
+export const UI_Text: React.FC<ChildNodeType | TextProps> = ({ children, ...otherProps }) => {
     return (
-        <Text>{children}</Text>
+        <Text {...otherProps}>{children}</Text>
     )
 }
