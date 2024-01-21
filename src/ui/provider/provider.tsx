@@ -5,6 +5,7 @@ import { ThemeProvider as ContextThemeProvider } from "@/context/theme";
 import ThemeProvider from "./theme-provider";
 import { Poppins } from "next/font/google";
 import { LayoutProvider } from "@/context/layout";
+import { SessionProvider } from "next-auth/react";
 type ComponentProps = {
     children: React.ReactNode
 }
@@ -22,7 +23,9 @@ const GlobalProvider: React.FC<ComponentProps> = ({ children }): JSX.Element => 
             <ContextThemeProvider>
                 <LayoutProvider>
                     <ThemeProvider>
-                        {children}
+                        <SessionProvider>
+                            {children}
+                        </SessionProvider>
                     </ThemeProvider>
                 </LayoutProvider>
             </ContextThemeProvider>
