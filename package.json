@@ -4,15 +4,20 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "prisma generate && next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@ant-design/icons": "^5.2.6",
+    "@prisma/client": "^5.8.1",
+    "@types/bcryptjs": "^2.4.6",
     "antd": "^5.12.5",
+    "bcryptjs": "^2.4.3",
     "dayjs": "^1.11.10",
     "next": "14.0.4",
+    "next-auth": "^4.24.5",
+    "prisma": "^5.8.1",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^4.12.0",
