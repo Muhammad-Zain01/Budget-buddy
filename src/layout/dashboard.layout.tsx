@@ -61,9 +61,10 @@ const HeaderItems = [
 
 const DasboardLayout: React.FC<ChildNodeType> = ({ children }) => {
     const session = useSession();
-    const status = session?.status
     console.log(session);
-    console.log(session?.status);
+    // const status = session?.status
+    // console.log(session?.status);
+    const status = 'authenticated'
     const path = usePathname().split('/')[1];
     const { sidebar, toggleSidebar } = useLayout()
     const { loading } = useLoadingState();
