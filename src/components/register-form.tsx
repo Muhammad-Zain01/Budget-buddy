@@ -3,24 +3,34 @@ import UI_Input from "@/ui/components/ui-input"
 import Link from "next/link"
 import { useState } from "react";
 import { Email, Password, UserOutlined } from "./icon";
-
+import { createUser } from "@/api/request";
 export const RegisterForm: React.FC = () => {
     const [name, setName] = useState<string>('');
     const [username, setUsername] = useState<string>('');
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
-
+    const [loading, setLoading] = useState<boolean>(false);
+    
     const resetValues = () => {
         setName('');
         setUsername('');
         setEmail('');
         setPassword('');
     }
-    const onSubmit = () => {
-        console.log("name",name)
-        console.log("username",username)
-        console.log("email",email)
-        console.log("password",password)
+    
+    const onSubmit = async () => {
+        const data = {
+            name,
+            username,
+            email,
+            password,
+        }
+        setLoading(true);
+        const response = await createUser(data)
+        if (response?.status) {
+            
+        }
+        setLoading(false);
     }
     return (
         <AuthBox>
@@ -45,7 +55,7 @@ export const RegisterForm: React.FC = () => {
                     <AuthLabel>Password</AuthLabel>
                     <UI_Input prefix={<Password color="#bcbcbc" size={18} right={5} />} placeholder="Enter Your Password" type="password" onChange={(e) => setPassword(e.target.value)} />
                 </FieldsWrapper>
-                <AuthButton onClick={onSubmit}>
+                <AuthButton loading={loading} onClick={onSubmit}>
                     Register
                 </AuthButton>
                 <AuthChanger>
