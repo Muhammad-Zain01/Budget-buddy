@@ -1,22 +1,31 @@
 import { AuthBox, AuthButton, AuthChanger, AuthFormWrapper, AuthHeadingWrapper, AuthLabel, AuthTagline, AuthTitle, FieldsWrapper } from "@/styles/auth"
 import UI_Input from "@/ui/components/ui-input"
-import { UI_Text } from "@/ui/components/ui-text"
 import Link from "next/link"
 import { Email, Password } from "./icon"
 import { useState } from "react"
+import { signIn } from "next-auth/react"
 
 export const LoginForm: React.FC = () => {
     const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
-    
+
     const resetValues = () => {
         setUsername('');
         setPassword('');
     }
-    
-    const onSubmit = () => {
-        console.log("username", username)
-        console.log("password", password)
+
+    const onSubmit = async () => {
+        // VALIDATIONS
+        const response = await signIn(
+            'credentials',
+            {
+                username: username,
+                password: password,
+                redirect: false
+            })
+        console.log("response", response)
+        // console.log("username", username)
+        // console.log("password", password)
     }
     return (
         <AuthBox>
