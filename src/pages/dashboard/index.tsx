@@ -4,6 +4,8 @@ import { DashboardCardsWrapper } from "@/styles/dashboard";
 import { NextPage } from "next";
 
 const Dashboard: NextPage = (): JSX.Element => {
+    
+    
     return (
         <>
             <DashboardCardsWrapper>
