@@ -5,7 +5,7 @@ import { Email, Password } from "./icon"
 import { useState } from "react"
 import { signIn } from "next-auth/react"
 
-export const LoginForm: React.FC = () => {
+export const LoginForm: React.FC = (): JSX.Element => {
     const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
 
@@ -13,6 +13,7 @@ export const LoginForm: React.FC = () => {
         setUsername('');
         setPassword('');
     }
+
 
     const onSubmit = async () => {
         // VALIDATIONS
@@ -22,7 +23,8 @@ export const LoginForm: React.FC = () => {
                 username: username,
                 password: password,
                 redirect: false
-            })
+            } as { username: string, password: string, redirect: boolean })
+
         console.log("response", response)
         // console.log("username", username)
         // console.log("password", password)

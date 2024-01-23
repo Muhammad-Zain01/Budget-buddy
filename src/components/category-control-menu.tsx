@@ -2,7 +2,7 @@ import { ContegoryMenuIconSpan, ContegoryMenuIconWrapper } from "@/styles/catego
 import { Delete, HiddenIcon, ShowIcon } from "./icon";
 import { useState } from "react";
 
-const CategoryControlMenu = () => {
+const CategoryControlMenu: React.FC = (): JSX.Element => {
     const [showCategory, setShowCategory] = useState(true)
     const ShowCategory = () => {
         setShowCategory(false)

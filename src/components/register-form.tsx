@@ -4,31 +4,39 @@ import Link from "next/link"
 import { useState } from "react";
 import { Email, Password, UserOutlined } from "./icon";
 import { createUser } from "@/api/request";
-export const RegisterForm: React.FC = () => {
+
+export const RegisterForm: React.FC = (): JSX.Element => {
     const [name, setName] = useState<string>('');
     const [username, setUsername] = useState<string>('');
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [loading, setLoading] = useState<boolean>(false);
-    
+
     const resetValues = () => {
         setName('');
         setUsername('');
         setEmail('');
         setPassword('');
     }
-    
+
     const onSubmit = async () => {
         const data = {
             name,
             username,
             email,
             password,
-        }
+        } as {
+            name: string;
+            username: string;
+            email: string;
+            password: string;
+        };
+
         setLoading(true);
         const response = await createUser(data)
+        console.log(response)
         if (response?.status) {
-            
+
         }
         setLoading(false);
     }

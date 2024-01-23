@@ -5,7 +5,20 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     const data = req.body;
     const { name, username, email, password } = data
 
-    // VALIDATION REQUIRED
+    if (name.trim() == "" || username.trim() == "" || email.trim() == "" || password.trim() == "") {
+        return res.status(400).json({ status: 0, message: 'All fields are required' })
+    }
+
+    const result = await prisma.user.findFirst({
+        where: {
+            OR: [{ username: username }, { email: email }]
+        },
+        select: { id: true, username: true, email: true, password: true }
+    })
+
+    if (result) {
+        return res.status(401).json({ status: 0, message: 'User Already Registered' })
+    }
 
     // ADDING TO DB
     const hashedPassword = await HashPassword(password)

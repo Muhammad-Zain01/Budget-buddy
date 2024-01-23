@@ -28,7 +28,6 @@ export const authOptions: NextAuthOptions = {
                 if (isUser) {
                     return { userId: data?.id, value: 'test', email: data?.email }
                 }
-
                 throw new Error('WRONG_PASSWORD');
             }
         })
