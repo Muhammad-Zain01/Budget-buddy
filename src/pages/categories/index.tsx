@@ -2,7 +2,10 @@ import { CategoryFlexWrapper, CategoryWrapper } from "@/styles/category";
 import CategoryCard from "@/components/category-card";
 import CategoryTabs from "@/components/category-tabs";
 import { useState } from "react";
-
+import { FormItem, Modal } from "@/ui/imports/ui-import";
+import { Select } from "@/ui/imports/ui-import";
+import { UI_Text } from "@/ui/components/ui-text";
+import AddCategoryModal from "@/components/add-category-modal";
 export type CategoryType = "expense" | "income"
 export type Category = {
     icon: string;
@@ -12,6 +15,7 @@ export type Category = {
 }
 export default function Category() {
     const [currentType, setCurrentType] = useState<CategoryType>('income')
+    const [addCategoryModal, setAddCategoryModal] = useState<boolean>(false)
     const categories: Category[] = [
         { icon: 'user', title: "Personal", isChecked: true, type: "expense" },
         { icon: 'food', title: "Foods & Drink", isChecked: true, type: "expense" },
@@ -55,13 +59,15 @@ export default function Category() {
         { icon: 'savings', title: "Savings", isChecked: true, type: "income" },
     ]
     return (
-        <div>
+        <div onClick={() => setAddCategoryModal(true)}>
             <CategoryTabs changeType={setCurrentType} />
             <CategoryFlexWrapper>
                 <CategoryWrapper>
                     {categories && categories.filter(item => item.type === currentType).map((category, index) => <CategoryCard key={index} category={category} />)}
                 </CategoryWrapper>
             </CategoryFlexWrapper>
+
+            <AddCategoryModal open={addCategoryModal} setOpen={setAddCategoryModal} />
         </div>
     )
 }

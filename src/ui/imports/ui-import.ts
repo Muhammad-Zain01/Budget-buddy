@@ -20,3 +20,5 @@ export const Avatar = dynamic(() => import("antd").then(mod => mod.Avatar), { ss
 export const DatePicker = dynamic(() => import("antd").then(mod => mod.DatePicker), { ssr: false })
 export const Input = dynamic(() => import("antd").then(mod => mod.Input), { ssr: false })
 export const FormItem = dynamic(() => import("antd").then(mod => mod.Form.Item), { ssr: false })
+export const Modal = dynamic(() => import("antd").then(mod => mod.Modal), { ssr: false })
+export const Select = dynamic(() => import("antd").then(mod => mod.Select), { ssr: false })

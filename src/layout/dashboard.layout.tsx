@@ -3,7 +3,7 @@ import { Layout } from '@/ui/imports/ui-import';
 import { DashboardContent, DashboardFooter, DashboardHeader, DashboardHeaderHeading, DashboardLayoutWrapper, DashboardMenu, DashboardSidebar, HeaderItemsWraper } from '../styles/dashboard';
 import { ChildNodeType } from '@/common/types';
 import { Account, Category, Dashboard, Github, Goals, Insights, LinkedIn, Settings, Transaction } from '@/components/icon';
-import { DashboardLink as Link } from '@/styles/global';
+import { GlobalStyle, DashboardLink as Link } from '@/styles/global';
 import { usePathname } from 'next/navigation';
 import UI_Button from '@/ui/components/ui-button';
 import { useLayout } from '@/context/layout';
@@ -63,20 +63,15 @@ const HeaderItems = [
 
 const DasboardLayout: React.FC<ChildNodeType> = ({ children }) => {
     const session = useSession();
-    console.log(session);
-    // const status = session?.status
-    // console.log(session?.status);
-    const status = 'authenticated'
     const path = usePathname().split('/')[1];
     const { sidebar, toggleSidebar } = useLayout()
     const { loading } = useLoadingState();
     const [pageKey, setKey] = useState(path)
     const { theme } = useTheme();
     const title = HeaderItems.find(item => pageKey === item.key)?.title
-    // signOut()
     return (
         <>
-
+            <GlobalStyle />
             <DashboardLayoutWrapper>
                 <DashboardSidebar width={240} collapsed={sidebar}>
                     <div style={{ display: 'flex', justifyContent: 'center', margin: '20px 0' }}>
