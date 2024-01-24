@@ -13,6 +13,8 @@ import UserDropDown from '@/components/user-dropdown';
 import Timeline from '@/components/timeline';
 import ThemeShifter from '@/components/theme-shifter';
 import { signOut, useSession } from 'next-auth/react';
+import Image from 'next/image';
+import { useTheme } from '@/context/theme';
 
 const HeaderItems = [
     {
@@ -69,45 +71,48 @@ const DasboardLayout: React.FC<ChildNodeType> = ({ children }) => {
     const { sidebar, toggleSidebar } = useLayout()
     const { loading } = useLoadingState();
     const [pageKey, setKey] = useState(path)
+    const { theme } = useTheme();
     const title = HeaderItems.find(item => pageKey === item.key)?.title
     // signOut()
     return (
         <>
-            {
-                status === 'authenticated' &&
-                <DashboardLayoutWrapper>
-                    <DashboardSidebar width={240} collapsed={sidebar}>
-                        <DashboardMenu
-                            onClick={(e) => { setKey(e.key) }}
-                            defaultSelectedKeys={[path]}
-                            items={HeaderItems}
-                        />
-                        <UI_Button onClick={toggleSidebar}>Toggle Sidebar</UI_Button>
-                    </DashboardSidebar>
-                    <Layout>
-                        <DashboardHeader>
-                            <DashboardHeaderHeading level={3}>{title}</DashboardHeaderHeading>
-                            <HeaderItemsWraper>
-                                <Timeline />
-                                <ThemeShifter />
-                                <UserDropDown />
-                            </HeaderItemsWraper>
-                        </DashboardHeader>
 
-                        <DashboardContent>
-                            {loading ? <Loader /> : <>{children}</>}
-                        </DashboardContent>
-                        <DashboardFooter>
-                            All Right Reservered By Muhammad Zain  &nbsp;
-                            <Link href="https://github.com/Muhammad-Zain01">
-                                <Github size={17} />
-                            </Link>&nbsp;&nbsp;
-                            <Link href="https://www.linkedin.com/in/muhammad-zain01/">
-                                <LinkedIn size={17} />
-                            </Link>
-                        </DashboardFooter>
-                    </Layout>
-                </DashboardLayoutWrapper>}
+            <DashboardLayoutWrapper>
+                <DashboardSidebar width={240} collapsed={sidebar}>
+                    <div style={{ display: 'flex', justifyContent: 'center', margin: '20px 0' }}>
+                        <img src={`/assets/logos/${sidebar ? 'icon' : 'logo'}_${theme == 'dark' ? 'white' : 'colored'}.png`} width={sidebar ? "50px" : "150px"} />
+                    </div>
+                    <DashboardMenu
+                        onClick={(e) => { setKey(e.key) }}
+                        defaultSelectedKeys={[path]}
+                        items={HeaderItems}
+                    />
+                    <UI_Button onClick={toggleSidebar}>Toggle Sidebar</UI_Button>
+                </DashboardSidebar>
+                <Layout>
+                    <DashboardHeader>
+                        <DashboardHeaderHeading level={3}>{title}</DashboardHeaderHeading>
+                        <HeaderItemsWraper>
+                            <Timeline />
+                            <ThemeShifter />
+                            <UserDropDown />
+                        </HeaderItemsWraper>
+                    </DashboardHeader>
+
+                    <DashboardContent>
+                        {loading ? <Loader /> : <>{children}</>}
+                    </DashboardContent>
+                    <DashboardFooter>
+                        All Right Reservered By Muhammad Zain  &nbsp;
+                        <Link href="https://github.com/Muhammad-Zain01">
+                            <Github size={17} />
+                        </Link>&nbsp;&nbsp;
+                        <Link href="https://www.linkedin.com/in/muhammad-zain01/">
+                            <LinkedIn size={17} />
+                        </Link>
+                    </DashboardFooter>
+                </Layout>
+            </DashboardLayoutWrapper>
         </>
     )
 };
