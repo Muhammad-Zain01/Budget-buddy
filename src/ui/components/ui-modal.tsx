@@ -5,7 +5,7 @@ import { ChildNodeType } from "@/common/types"
 
 const ModalWrapper = styled(Modal)`
     .ant-modal-content, .ant-modal-title, .ant-modal-close-icon{
-        background: ${props => props.theme.background};
+        background: ${props => props.theme.cardBackground};
         color: ${props => props.theme.color};
     }
 `
