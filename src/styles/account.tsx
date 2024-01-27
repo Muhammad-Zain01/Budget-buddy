@@ -35,3 +35,30 @@ export const FlexWrapper = styled.div`
     display: flex;
     align-items: center;
 `
+export const AccountIconDiv = styled.div`
+    padding: 20px;
+    padding-top: 33px !important;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    margin: 0px 2px;
+    padding: 30px 20px;
+    justify-content: center;
+    border: 1px solid  ${props => props.isSelected ? props.theme.borderColor : "#9e9e9e9a"};
+    border-radius: 5px;
+
+    &:hover{
+        border: 1px solid ${props => props.theme.borderColor};
+    }
+`
+export const AccountBalanceType = styled.div`
+    width: 50%;
+    border: 1px solid ${props => props.isSelected ? props.theme.borderColor : "#9e9e9e9a"} !important; 
+    padding: 20px;
+    border-radius: 4px;
+    margin: 0px 2px;
+    &:hover{
+        border: 1px solid ${props => props.theme.borderColor};
+    }
+`
