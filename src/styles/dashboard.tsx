@@ -91,7 +91,7 @@ export const DashboardMenu = styled(Menu)`
         color: ${props => props.theme.color} !important;
     }
     .ant-menu-item-selected{
-        background: linear-gradient(120deg, #3563c5,#2250b2);
+        background: ${props => props.theme.gradient} !important;
         color: white !important;
     }
     .ant-menu-item {
@@ -146,7 +146,7 @@ export const DIconWraper = styled.div`
     margin-right: 15px;
 `
 export const IconDiv = styled.span`
-    background: linear-gradient(120deg, #3563c5,#2250b2);
+    background: ${props => props.theme.gradient};
     border-radius: 200px;
     padding: 16px;
     display: inline-flex;
