@@ -27,7 +27,7 @@ export const AuthBox = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background: ${props => props.type === 'illustration' ? "linear-gradient(120deg, #3563c5,#2250b2)" : "white"};
+    background: ${props => props.type === 'illustration' ? props.theme.gradient : "white"};
     @media only screen and (max-width:1165px) {
         width: ${props => props.type === 'illustration' ? 0 : 100}%;
         ${props => props.type === 'illustration' && 'display: none !important;'}
@@ -49,7 +49,7 @@ export const AuthButton = styled(UI_Button)`
     margin-top: 30px;
     margin-bottom: 30px;
     color: white !important;
-    background: linear-gradient(120deg, #3563c5,#2250b2) !important;
+    background: ${props => props.theme.gradient} !important;
     border: none;
 `
 export const AuthHeadingWrapper = styled.div`
