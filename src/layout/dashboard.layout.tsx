@@ -69,6 +69,7 @@ const DasboardLayout: React.FC<ChildNodeType> = ({ children }) => {
     const [pageKey, setKey] = useState(path)
     const { theme } = useTheme();
     const title = HeaderItems.find(item => pageKey === item.key)?.title
+
     return (
         <>
             <GlobalStyle />
