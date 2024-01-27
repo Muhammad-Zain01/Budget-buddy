@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Card } from "@/ui/imports/ui-import";
 import UI_Title from "@/ui/components/ui-title";
+import UI_Button from "@/ui/components/ui-button";
 export const CategoryWrapper = styled.div`
     display: flex;
     flex-wrap: wrap;
@@ -77,4 +78,27 @@ export const ContegoryMenuIconSpan = styled.span`
         background-color: #dadada51;
     }
     
+`
+export const CategoryIconWrapper = styled.div`
+    display: flex;
+    justify-content: center ;
+    width: 100%;
+    flex-wrap: wrap;
+`
+export const CategoryIcon = styled.div`
+    color: ${(props) => props.theme.color};
+    border: 1px solid ${props => props.isSelected ? "#333333" : props.theme.cardBorder};
+    padding: 12px;
+    width: 9%;
+    min-width: 35px;
+    margin:2px;
+    border-radius: 5px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    &:hover{
+        border: 1px solid #949494;
+    }
 `
