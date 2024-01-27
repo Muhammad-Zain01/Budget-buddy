@@ -2,10 +2,10 @@ import { CategoryFlexWrapper, CategoryWrapper } from "@/styles/category";
 import CategoryCard from "@/components/category-card";
 import CategoryTabs from "@/components/category-tabs";
 import { useState } from "react";
-import { FormItem, Modal } from "@/ui/imports/ui-import";
-import { Select } from "@/ui/imports/ui-import";
-import { UI_Text } from "@/ui/components/ui-text";
 import AddCategoryModal from "@/components/add-category-modal";
+import { Add } from "@/components/icon";
+import { AddButton } from "@/styles/global";
+
 export type CategoryType = "expense" | "income"
 export type Category = {
     icon: string;
@@ -59,8 +59,8 @@ export default function Category() {
         { icon: 'savings', title: "Savings", isChecked: true, type: "income" },
     ]
     return (
-        <div onClick={() => setAddCategoryModal(true)}>
-            <CategoryTabs changeType={setCurrentType} />
+        <div >
+            <CategoryTabs addButton={<AddButton type='primary' icon={<Add size={18} />} onClick={() => setAddCategoryModal(true)}>Add Category</AddButton>} changeType={setCurrentType} />
             <CategoryFlexWrapper>
                 <CategoryWrapper>
                     {categories && categories.filter(item => item.type === currentType).map((category, index) => <CategoryCard key={index} category={category} />)}
