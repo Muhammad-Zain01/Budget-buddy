@@ -4,10 +4,11 @@ import { InputProps } from "antd";
 
 const Input = styled(Inp)`
     color: ${props => props.theme.color} !important;
-    font-weight: 500 !important;
     padding: 10px 10px;
-    background-color: #fcfcfc;
- 
+    background-color: ${props => props.theme.cardBackground};
+    &::placeholder{
+        color: #b8b8b8ad
+    }
 `
 
 const UI_Input: React.FC<InputProps> = ({ ...props }) => {
