@@ -26,11 +26,20 @@ const AddAccountModal: React.FC<ComponentProps> = ({ open, setOpen }) => {
     const onSave = () => {
         // SAVE LOGIC SHOULD GO THERE
     }
+    const onCancel = () => {
+        if (stage > 1) {
+            setStage(prev => prev - 1);
+        } else {
+            setStage(1);
+            setAccountType("");
+            setOpen(false)
+        }
+    }
     return (
         <UI_Modal
             open={open}
             title={stage === 1 ? 'Select Account Type' : `Add ${accountTitle && accountTitle[1]} Account`}
-            onCancel={() => { setStage(1); setAccountType("money"); setIsPostive(true); setOpen(false) }}
+            onCancel={onCancel}
             centered
             footer={stage === 1 ? false : <UI_Button type="primary" onClick={onSave}>Save</UI_Button>}
         >
