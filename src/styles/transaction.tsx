@@ -36,7 +36,7 @@ export const TransactionDetail = styled.span`
     font-size: 12px !important;
     margin-top: 0px;
     margin-left: 12px;
-    color: grey
+    color: grey;
 `
 export const TransactionAmountDiv = styled.div`
     display: flex;
@@ -68,4 +68,21 @@ export const TransactionDescription = styled.p`
 export const TransactionTags = styled.div`
 display: flex;
     justify-content: end;
+`
+export const TranactionItemsGridDiv = styled.div`
+    width: 11%;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    margin: 2px;
+    padding: 15px 25px;
+    justify-content: center;
+    border: 1px solid  ${props => props.isSelected ? props.theme.borderColor : "#9e9e9e9a"};
+    border-radius: 5px;
+    flex-grow: 1;
+
+    &:hover{
+        border: 1px solid ${props => props.theme.borderColor};
+    }
+    
 `
