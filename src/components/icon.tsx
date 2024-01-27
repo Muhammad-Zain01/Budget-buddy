@@ -24,6 +24,7 @@ import { GoGoal } from "react-icons/go";
 import { FaGear } from "react-icons/fa6";
 import { FaChartSimple } from "react-icons/fa6";
 import { BsFillTrash3Fill } from "react-icons/bs";
+import { MdLogout } from "react-icons/md";
 
 import { MdOutlineEmail } from "react-icons/md";
 import { RiLockPasswordLine } from "react-icons/ri";
@@ -43,14 +44,15 @@ type ComponentProps = {
     icon: string;
     size: number;
     style?: React.CSSProperties
+    onClick?: () => void
 }
-export const Icon: React.FC<ComponentProps> = ({ icon, size, style }) => {
-    return <IconImage src={`/assets/icons/${icon}.png`} alt={icon} style={style} width={size} height={size} />
+export const Icon: React.FC<ComponentProps> = ({ icon, size, style, onClick }) => {
+    return <IconImage onClick={onClick} src={`/assets/icons/${icon}.png`} alt={icon} style={style} width={size} height={size} />
 }
 
 
 
-export const IconComponent: React.FC<any> = ({ Component, props }) => (<Component style={{ transition: 'none', marginRight: props.right,marginLeft: props.left, color: props.color, fontSize: props.size, ...props.style }} {...props} />)
+export const IconComponent: React.FC<any> = ({ Component, props }) => (<Component style={{ transition: 'none', marginRight: props.right, marginLeft: props.left, color: props.color, fontSize: props.size, ...props.style }} {...props} />)
 
 
 export const Email: React.FC<any> = props => <IconComponent Component={MdOutlineEmail} props={props} />
@@ -59,7 +61,7 @@ export const UserOutlined: React.FC<any> = props => <IconComponent Component={Fa
 export const Add: React.FC<any> = props => <IconComponent Component={IoIosAddCircleOutline} props={props} />
 export const Next: React.FC<any> = props => <IconComponent Component={MdNavigateNext} props={props} />
 export const Previous: React.FC<any> = props => <IconComponent Component={GrFormPrevious} props={props} />
-
+export const Logout: React.FC<any> = props => <IconComponent Component={MdLogout} props={props} />
 
 export const LightMode: React.FC<any> = props => <IconComponent Component={MdOutlineLightMode} props={props} />
 export const DarkMode: React.FC<any> = props => <IconComponent Component={MdOutlineDarkMode} props={props} />
