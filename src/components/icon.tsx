@@ -28,6 +28,9 @@ import { BsFillTrash3Fill } from "react-icons/bs";
 import { MdOutlineEmail } from "react-icons/md";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { FaRegCircleUser } from "react-icons/fa6";
+import { MdNavigateNext } from "react-icons/md";
+import { GrFormPrevious } from "react-icons/gr";
+import { IoIosAddCircleOutline } from "react-icons/io";
 
 import styled from "styled-components";
 import Image from "next/image";
@@ -53,6 +56,9 @@ export const IconComponent: React.FC<any> = ({ Component, props }) => (<Componen
 export const Email: React.FC<any> = props => <IconComponent Component={MdOutlineEmail} props={props} />
 export const Password: React.FC<any> = props => <IconComponent Component={RiLockPasswordLine} props={props} />
 export const UserOutlined: React.FC<any> = props => <IconComponent Component={FaRegCircleUser} props={props} />
+export const Add: React.FC<any> = props => <IconComponent Component={IoIosAddCircleOutline} props={props} />
+export const Next: React.FC<any> = props => <IconComponent Component={MdNavigateNext} props={props} />
+export const Previous: React.FC<any> = props => <IconComponent Component={GrFormPrevious} props={props} />
 
 
 export const LightMode: React.FC<any> = props => <IconComponent Component={MdOutlineLightMode} props={props} />
