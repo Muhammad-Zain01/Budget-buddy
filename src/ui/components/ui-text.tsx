@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 const TextWrapper = styled(Text)`
     color: ${props => props.theme.color};
-    background: ${props => props.theme.background};
+    background: ${props => props.theme.cardBackground};
 `
 export const UI_Text: React.FC<ChildNodeType | TextProps> = ({ children, ...otherProps }) => {
     return (
