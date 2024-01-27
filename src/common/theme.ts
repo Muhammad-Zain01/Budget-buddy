@@ -22,6 +22,7 @@ type ThemeType = {
     cardShadow: string;
     cardBorder: string;
     theme: string;
+    gradient: string;
 }
 export type Theme = {
     'dark': ThemeType;
@@ -37,6 +38,7 @@ export const Themes: Theme = {
         cardBackground: 'white',
         cardShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;',
         cardBorder: '#d3d3d3',
+        gradient: "linear-gradient(120deg, #3563c5,#2250b2)"
     },
     "dark": {
         theme: 'dark',
@@ -47,6 +49,7 @@ export const Themes: Theme = {
         cardBackground: '#273645',
         cardShadow: 'rgb(0 0 0 / 29%) 0px 48px 100px 0px',
         cardBorder: '#5c5c5c',
+        gradient: "linear-gradient(120deg, #3563c5,#2250b2)"
     }
 }
 export const AntTheme = {
