@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { Card } from "@/ui/imports/ui-import";
-import UI_Title from "@/ui/components/ui-title";
+import { Card } from "@/common/ui-import";
+import UI_Title from "@/components/ui/ui-title";
 import { isSelectedProp } from "./global";
 export const TransactionWrapper = styled.div`
     display: flex;

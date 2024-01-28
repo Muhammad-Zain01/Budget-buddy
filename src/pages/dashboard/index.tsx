@@ -1,4 +1,4 @@
-import DashboardCard from "@/components/dashboard-card";
+import DashboardCard from "@/components/dashboard/dashboard-card";
 import { Expense, Income, Savings, Wallet } from "@/components/icon";
 import { DashboardCardsWrapper } from "@/styles/dashboard";
 import { NextPage } from "next";

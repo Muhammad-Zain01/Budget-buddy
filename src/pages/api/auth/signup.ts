@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { HashPassword } from "../../../../lib/auth";
-import prisma from "../../../../lib/db";
+import { HashPassword } from "@/lib/auth";
+import prisma from "@/lib/db";
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     const data = req.body;
     const { name, username, email, password } = data

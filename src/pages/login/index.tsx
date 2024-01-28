@@ -1,5 +1,5 @@
-import { AuthIllustration } from "@/components/auth-illustration"
-import { LoginForm } from "@/components/login-form"
+import { AuthIllustration } from "@/components/auth/auth-illustration"
+import { LoginForm } from "@/components/auth/login-form"
 import { AuthContainer, AuthWrapper } from "@/styles/auth"
 import { NextPage } from "next"
 

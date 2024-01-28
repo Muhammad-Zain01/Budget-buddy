@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { Card } from "@/ui/imports/ui-import";
-import UI_Title from "@/ui/components/ui-title";
-import { UI_Text } from "@/ui/components/ui-text";
+import { Card } from "@/common/ui-import";
+import UI_Title from "@/components/ui/ui-title";
+import { UI_Text } from "@/components/ui/ui-text";
 import { isSelectedProp } from "./global";
 
 export const AccountWrapper = styled.div`

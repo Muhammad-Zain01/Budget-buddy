@@ -1,8 +1,8 @@
 import styled, { createGlobalStyle } from "styled-components";
 import Link from "next/link";
-import { SelectBoxOptions } from "@/ui/components/ui-select";
-import UI_Button from "@/ui/components/ui-button";
-import { UI_Text } from "@/ui/components/ui-text";
+import { SelectBoxOptions } from "@/components/ui/ui-select";
+import UI_Button from "@/components/ui/ui-button";
+import { UI_Text } from "@/components/ui/ui-text";
 
 export type isSelectedProp = {
     $isSelected?: boolean;
@@ -44,4 +44,36 @@ export const FormItemContainer = styled.div<RowProp>`
 `
 export const FormItemLabel = styled(UI_Text)`
     margin-bottom: 8px; 
+`
+export const IconGridWrapper = styled.div`
+    display: flex;
+    justify-content: center ;
+    width: 100%;
+    flex-wrap: wrap;
+`
+export const IconGrid = styled.div<isSelectedProp>`
+    color: ${(props) => props.theme.color};
+    border: 1px solid ${props => props.$isSelected ? "#949494" : props.theme.cardBorder};
+    padding: 12px;
+    width: 9%;
+    min-width: 35px;
+    margin:2px;
+    border-radius: 5px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    &:hover{
+        border: 1px solid #949494;
+    }
+`
+
+export const IconDivWrapper = styled.div`
+    display: flex;
+`
+export const IconDivControls = styled.div`
+    display: flex;
+    cursor: pointer;
+    align-items:center 
 `

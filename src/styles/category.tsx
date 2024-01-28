@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { Card } from "@/ui/imports/ui-import";
-import UI_Title from "@/ui/components/ui-title";
-import UI_Button from "@/ui/components/ui-button";
+import { Card } from "@/common/ui-import";
+import UI_Title from "@/components/ui/ui-title";
+import UI_Button from "@/components/ui/ui-button";
 import { isSelectedProp } from "./global";
 export const CategoryWrapper = styled.div`
     display: flex;
@@ -80,35 +80,4 @@ export const ContegoryMenuIconSpan = styled.span`
     }
     
 `
-export const CategoryIconWrapper = styled.div`
-    display: flex;
-    justify-content: center ;
-    width: 100%;
-    flex-wrap: wrap;
-`
-export const CategoryIcon = styled.div<isSelectedProp>`
-    color: ${(props) => props.theme.color};
-    border: 1px solid ${props => props.$isSelected ? "#949494" : props.theme.cardBorder};
-    padding: 12px;
-    width: 9%;
-    min-width: 35px;
-    margin:2px;
-    border-radius: 5px;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    &:hover{
-        border: 1px solid #949494;
-    }
-`
 
-export const CategoryIconDivWrapper = styled.div`
-    display: flex;
-`
-export const IconDivControls = styled.div`
-    display: flex;
-    cursor: pointer;
-    align-items:center 
-`

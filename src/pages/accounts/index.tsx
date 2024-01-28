@@ -1,5 +1,5 @@
-import AccountCard from "@/components/account-card";
-import AddAccountModal from "@/components/add-account-modal";
+import AccountCard from "@/components/accounts/account-card";
+import AddAccountModal from "@/components/accounts/add-account-modal";
 import { Add } from "@/components/icon";
 import { AccountWrapper } from "@/styles/account";
 import { AddButton, AddButtonWraper } from "@/styles/global";

@@ -1,7 +1,7 @@
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import DasboardLayout from '@/layout/dashboard.layout'
-import GlobalProvider from '@/ui/provider/provider'
+import GlobalProvider from '@/provider/global-provider'
 import { dashboardRoutes } from '@/common/common'
 import { usePathname } from 'next/navigation'
 import '@/styles/globals.css'

@@ -1,6 +1,6 @@
-import UI_Button from "@/ui/components/ui-button";
-import { UI_Text } from "@/ui/components/ui-text";
-import UI_Title from "@/ui/components/ui-title";
+import UI_Button from "@/components/ui/ui-button";
+import { UI_Text } from "@/components/ui/ui-text";
+import UI_Title from "@/components/ui/ui-title";
 import Image from "next/image";
 import styled from "styled-components";
 

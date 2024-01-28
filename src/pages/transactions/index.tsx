@@ -1,6 +1,6 @@
-import AddTransactionModal from "@/components/add-transaction-modal";
+import AddTransactionModal from "@/components/transaction/add-transaction-modal";
 import { Add } from "@/components/icon";
-import TransactionCard from "@/components/transaction-card";
+import TransactionCard from "@/components/transaction/transaction-card";
 import { AddButton } from "@/styles/global";
 import { TransactionWrapper } from "@/styles/transaction";
 import { useState } from "react";

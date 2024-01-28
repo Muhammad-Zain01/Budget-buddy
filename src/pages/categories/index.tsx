@@ -1,10 +1,10 @@
 import { CategoryFlexWrapper, CategoryWrapper } from "@/styles/category";
-import CategoryCard from "@/components/category-card";
+import CategoryCard from "@/components/category/category-card";
 import { useState } from "react";
-import AddCategoryModal from "@/components/add-category-modal";
+import AddCategoryModal from "@/components/category/add-category-modal";
 import { Add } from "@/components/icon";
 import { AddButton } from "@/styles/global";
-import UI_Tabs from "@/ui/components/ui-tabs";
+import UI_Tabs from "@/components/ui/ui-tabs";
 import { TabsProps } from "antd";
 
 export type CategoryType = "expense" | "income"
