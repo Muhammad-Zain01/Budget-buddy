@@ -12,8 +12,6 @@ import useLoadingState from '@/hooks/useLoadingState';
 import UserDropDown from '@/components/layout/user-dropdown';
 import Timeline from '@/components/layout/timeline';
 import ThemeShifter from '@/components/layout/theme-shifter';
-import { signOut, useSession } from 'next-auth/react';
-import Image from 'next/image';
 import { useTheme } from '@/context/theme';
 
 const HeaderItems = [
@@ -62,7 +60,6 @@ const HeaderItems = [
 ]
 
 const DasboardLayout: React.FC<ChildNodeType> = ({ children }) => {
-    const session = useSession();
     const path = usePathname().split('/')[1];
     const { sidebar, toggleSidebar } = useLayout()
     const { loading } = useLoadingState();

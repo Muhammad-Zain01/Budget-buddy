@@ -2,6 +2,7 @@ import NextAuth, { NextAuthOptions } from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
 import { VerifyPassword } from "@/lib/auth"
 import prisma from "@/lib/db"
+import { getUser } from "@/db/user"
 
 export const authOptions: NextAuthOptions = {
     session: {
@@ -14,12 +15,7 @@ export const authOptions: NextAuthOptions = {
             credentials: {},
             async authorize(credentials) {
                 const { username, password } = credentials as { username: string, password: string }
-                const data = await prisma.user.findFirst({
-                    where: {
-                        OR: [{ username: username }, { email: username }]
-                    },
-                    select: { id: true, username: true, email: true, password: true }
-                })
+                const data = await getUser(username);
                 if (!data) {
                     throw new Error('NOT_FOUND');
                 }
@@ -29,9 +25,26 @@ export const authOptions: NextAuthOptions = {
                     return { userId: data?.id, value: 'test', email: data?.email }
                 }
                 throw new Error('WRONG_PASSWORD');
-            }
+            },
+
+
         })
     ],
+    callbacks: {
+        async session({ session, user, token }) {
+            let return_data = { userId: 0, name: "", email: '' };
+            const email = token?.email;
+            if (email) {
+                const data = await getUser(email);
+                if (data) {
+                    return_data.userId = data?.id;
+                    return_data.name = data?.name;
+                    return_data.email = email;
+                }
+            }
+            return return_data
+        },
+    },
     pages: {
         signIn: '/login'
     }
