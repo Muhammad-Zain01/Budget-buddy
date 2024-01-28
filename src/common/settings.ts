@@ -1,1 +1,0 @@
-export const dashboardRoutes: string[] = ["dashboard", "categories", "accounts", "transactions", 'goals', 'settings', 'insights']
