@@ -16,7 +16,7 @@ const TransactionGrid: React.FC<ComponentProps> = ({ items, label, selectedItem,
             <UI_Text style={{ fontWeight: 500 }}>{label}</UI_Text>
             <div style={{ marginTop: 5, display: 'flex', flexWrap: 'wrap', justifyContent: 'start', }}>
                 {items.map(item => (
-                    <TranactionItemsGridDiv key={item[0]} isSelected={item[0] == selectedItem ? true : false} onClick={() => onClick(item)}>
+                    <TranactionItemsGridDiv key={item[0]} $isSelected={item[0] == selectedItem ? true : false} onClick={() => onClick(item)}>
                         <Icon icon={item[0]} size={50} />
                         <UI_Text style={{ fontSize: 13, marginTop: 5 }}>{item[1]}</UI_Text>
                     </TranactionItemsGridDiv>
