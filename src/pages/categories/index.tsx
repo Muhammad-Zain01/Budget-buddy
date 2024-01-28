@@ -1,10 +1,11 @@
 import { CategoryFlexWrapper, CategoryWrapper } from "@/styles/category";
 import CategoryCard from "@/components/category-card";
-import CategoryTabs from "@/components/category-tabs";
 import { useState } from "react";
 import AddCategoryModal from "@/components/add-category-modal";
 import { Add } from "@/components/icon";
 import { AddButton } from "@/styles/global";
+import UI_Tabs from "@/ui/components/ui-tabs";
+import { TabsProps } from "antd";
 
 export type CategoryType = "expense" | "income"
 export type Category = {
@@ -14,7 +15,7 @@ export type Category = {
     type: CategoryType
 }
 export default function Category() {
-    const [currentType, setCurrentType] = useState<CategoryType>('income')
+    const [currentType, setCurrentType] = useState<CategoryType>('income');
     const [addCategoryModal, setAddCategoryModal] = useState<boolean>(false)
     const categories: Category[] = [
         { icon: 'user', title: "Personal", isChecked: true, type: "expense" },
@@ -58,16 +59,35 @@ export default function Category() {
         { icon: 'money', title: "Other Income", isChecked: true, type: "income" },
         { icon: 'savings', title: "Savings", isChecked: true, type: "income" },
     ]
+    const items: TabsProps['items'] = [
+        {
+            key: 'income',
+            label: 'Income',
+        },
+        {
+            key: 'expense',
+            label: 'Expense',
+        },
+    ];
     return (
         <div >
-            <CategoryTabs addButton={<AddButton type='primary' icon={<Add size={18} />} onClick={() => setAddCategoryModal(true)}>Add Category</AddButton>} changeType={setCurrentType} />
+            <UI_Tabs
+                tabBarExtraContent={<AddButton type='primary' icon={<Add size={18} />} onClick={() => setAddCategoryModal(true)}>Add Category</AddButton>}
+                items={items}
+                onChange={(e) => { setCurrentType(e) }}
+            />
             <CategoryFlexWrapper>
                 <CategoryWrapper>
-                    {categories && categories.filter(item => item.type === currentType).map((category, index) => <CategoryCard key={index} category={category} />)}
+                    {
+                        categories &&
+                        categories.filter(item => item.type === currentType)
+                            .map((category, index) =>
+                                <CategoryCard key={index} category={category} />
+                            )
+                    }
                 </CategoryWrapper>
             </CategoryFlexWrapper>
-
-            <AddCategoryModal open={addCategoryModal} setOpen={setAddCategoryModal} />
+            <AddCategoryModal open={addCategoryModal} setOpen={setAddCategoryModal} defaultCategory={currentType} />
         </div>
     )
 }
