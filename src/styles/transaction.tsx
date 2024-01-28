@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Card } from "@/ui/imports/ui-import";
 import UI_Title from "@/ui/components/ui-title";
+import { isSelectedProp } from "./global";
 export const TransactionWrapper = styled.div`
     display: flex;
 `
@@ -69,7 +70,7 @@ export const TransactionTags = styled.div`
 display: flex;
     justify-content: end;
 `
-export const TranactionItemsGridDiv = styled.div`
+export const TranactionItemsGridDiv = styled.div<isSelectedProp>`
     width: 11%;
     display: flex;
     flex-direction: column;
@@ -77,7 +78,7 @@ export const TranactionItemsGridDiv = styled.div`
     margin: 2px;
     padding: 15px 25px;
     justify-content: center;
-    border: 1px solid  ${props => props.isSelected ? props.theme.borderColor : "#9e9e9e9a"};
+    border: 1px solid  ${props => props.$isSelected ? props.theme.borderColor : "#9e9e9e9a"};
     border-radius: 5px;
     flex-grow: 1;
 
