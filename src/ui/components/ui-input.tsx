@@ -9,6 +9,8 @@ const Input = styled(Inp)`
     &::placeholder{
         color: #b8b8b8ad
     }
+   
+
 `
 
 const UI_Input: React.FC<InputProps> = ({ ...props }) => {
