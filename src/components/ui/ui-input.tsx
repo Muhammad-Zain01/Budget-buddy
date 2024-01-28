@@ -6,6 +6,11 @@ const Input = styled(Inp)`
     color: ${props => props.theme.color} !important;
     padding: 10px 10px;
     background-color: ${props => props.theme.cardBackground};
+    
+    input{
+        color: ${props => props.theme.color};
+        background-color: ${props => props.theme.cardBackground};
+    }
     &::placeholder{
         color: #b8b8b8ad
     }
