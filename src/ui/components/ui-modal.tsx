@@ -12,7 +12,7 @@ const ModalWrapper = styled(Modal)`
 
 const UI_Modal: React.FC<ChildNodeType | ModalProps> = ({ children, ...props }): JSX.Element => {
     return (
-        <ModalWrapper {...props}>
+        <ModalWrapper maskClosable={false} {...props}>
             {children}
         </ModalWrapper>
     )
