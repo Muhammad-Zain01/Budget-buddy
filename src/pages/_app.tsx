@@ -4,7 +4,6 @@ import DasboardLayout from '@/layout/dashboard.layout'
 import GlobalProvider from '@/provider/global-provider'
 import { dashboardRoutes } from '@/common/common'
 import { usePathname } from 'next/navigation'
-import '@/styles/globals.css'
 
 export default function App({ Component, pageProps }: AppProps) {
   const path = usePathname().split('/')[1];

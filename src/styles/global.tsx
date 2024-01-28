@@ -3,6 +3,7 @@ import Link from "next/link";
 import { SelectBoxOptions } from "@/components/ui/ui-select";
 import UI_Button from "@/components/ui/ui-button";
 import { UI_Text } from "@/components/ui/ui-text";
+import { DropdownCSS } from "@/components/ui/ui-dropdown";
 
 export type isSelectedProp = {
     $isSelected?: boolean;
@@ -19,6 +20,7 @@ export const DashboardLink = styled(Link)`
 `
 export const GlobalStyle = createGlobalStyle`
     ${SelectBoxOptions}
+    ${DropdownCSS}
     input[type=number]::-webkit-inner-spin-button, 
     input[type=number]::-webkit-outer-spin-button {
         display: none;

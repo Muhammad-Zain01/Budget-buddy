@@ -1,6 +1,7 @@
 import { UserAvatar } from "@/styles/dashboard";
 import { MenuProps } from "antd";
 import UI_Dropdown from "@/components/ui/ui-dropdown";
+import UserDropDownMenu from "./user-dropdown-menu";
 
 
 const UserDropDown: React.FC = (): JSX.Element => {
@@ -8,9 +9,7 @@ const UserDropDown: React.FC = (): JSX.Element => {
         {
             key: '1',
             label: (
-                <p>
-                    asdfasdf
-                </p>
+                <UserDropDownMenu />
             ),
         },
     ];

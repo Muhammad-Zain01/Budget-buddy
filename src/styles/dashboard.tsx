@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Footer, Header, Layout, Content, Sider, Menu, Avatar, DatePicker, Card } from "@/common/ui-import";
 import UI_Title from "@/components/ui/ui-title";
+import { Logout } from "@/components/icon";
 
 export const DashboardLayoutWrapper = styled(Layout)`
     overflow: hidden;
@@ -175,4 +176,16 @@ export const HeaderItemsWraper = styled.div`
 export const DashboardCardsWrapper = styled.div`
     display: flex;
     justify-content: space-between;
+`
+
+export const UserDropdownList = styled.div`
+    display: flex;
+    align-items: center;
+    border-radius: 5px; 
+    padding: 10px;
+    color: ${props => props.theme.color};
+
+    &:hover{
+        background: #98989844;
+    }
 `

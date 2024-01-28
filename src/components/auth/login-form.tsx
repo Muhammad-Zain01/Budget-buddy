@@ -14,7 +14,6 @@ export const LoginForm: React.FC = (): JSX.Element => {
         setPassword('');
     }
 
-
     const onSubmit = async () => {
         // VALIDATIONS
         const response = await signIn(
@@ -24,10 +23,6 @@ export const LoginForm: React.FC = (): JSX.Element => {
                 password: password,
                 redirect: false
             } as { username: string, password: string, redirect: boolean })
-
-        console.log("response", response)
-        // console.log("username", username)
-        // console.log("password", password)
     }
     return (
         <AuthBox>

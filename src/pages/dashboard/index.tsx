@@ -1,7 +1,8 @@
 import DashboardCard from "@/components/dashboard/dashboard-card";
 import { Expense, Income, Savings, Wallet } from "@/components/icon";
+import { RedirectToLogin, VerifyUserAuth, getUserSession } from "@/lib/auth";
 import { DashboardCardsWrapper } from "@/styles/dashboard";
-import { NextPage } from "next";
+import { NextPage, NextPageContext } from "next";
 
 const Dashboard: NextPage = (): JSX.Element => {
     return (
@@ -16,3 +17,11 @@ const Dashboard: NextPage = (): JSX.Element => {
     )
 }
 export default Dashboard
+
+export async function getServerSideProps(context) {
+    const session = await getUserSession(context)
+    console.log(">>>",session);
+    if(!session) return RedirectToLogin;
+
+    return { props: {} }
+}
