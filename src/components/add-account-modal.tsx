@@ -1,26 +1,32 @@
 import UI_Modal from "@/ui/components/ui-modal";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import UI_Button from "@/ui/components/ui-button";
-import { Icon } from "./icon";
-import { AccountBalanceType, AccountIconDiv } from "@/styles/account";
-import { UI_Text } from "@/ui/components/ui-text";
-import { FormItem } from "@/ui/imports/ui-import";
+import { AccountBalanceType, AccountGridWrapper } from "@/styles/account";
 import UI_Input from "@/ui/components/ui-input";
+import AccountGrid from "./account-grid";
+import { FormItemContainer, FormItemLabel } from "@/styles/global";
+import { AccountGridItems } from "@/common/common";
+import useGridSelection from "@/hooks/useGridSelection";
+import useFormState from "@/hooks/useFormState";
 
 type ComponentProps = {
     open: boolean;
     setOpen: (value: boolean) => void;
 }
+type FormState = {
+    isPositive: boolean;
+    accountName: string;
+    accountBalance: number;
+}
 const AddAccountModal: React.FC<ComponentProps> = ({ open, setOpen }) => {
     const [stage, setStage] = useState<number>(1)
-    const [accountType, setAccountType] = useState<string>('');
-    const [isPositive, setIsPostive] = useState<boolean>(true)
-    const [accountName, setAccountName] = useState<string>('');
-    const [accountBalance, setAccountBalance] = useState<number>(0);
-    const AccountCategory = [['money', 'Cash'], ['bank', 'Bank'], ['user', 'Person']];
-    const accountTitle = AccountCategory.find((item) => item[0] == accountType);
-    const nextClick = (value: string[]) => {
-        setAccountType(value[0]);
+    const { label, type, setType } = useGridSelection(AccountGridItems)
+    const formState: FormState = { isPositive: false, accountName: "", accountBalance: 0 }
+    const { form, reset, setValue } = useFormState<FormState>(formState)
+    const { isPositive, accountName, accountBalance } = form;
+
+    const NextStage = (value: string[]) => {
+        setType(value[0]);
         setStage(2)
     }
     const onSave = () => {
@@ -28,51 +34,65 @@ const AddAccountModal: React.FC<ComponentProps> = ({ open, setOpen }) => {
     }
     const onCancel = () => {
         if (stage > 1) {
+            reset();
             setStage(prev => prev - 1);
         } else {
             setStage(1);
-            setAccountType("");
+            setType("");
             setOpen(false)
         }
     }
     return (
         <UI_Modal
             open={open}
-            title={stage === 1 ? 'Select Account Type' : `Add ${accountTitle && accountTitle[1]} Account`}
+            title={stage === 1 ? 'Select Account Type' : `Add ${label && label[1]} Account`}
             onCancel={onCancel}
             centered
             footer={stage === 1 ? false : <UI_Button type="primary" onClick={onSave}>Save</UI_Button>}
         >
             {
                 stage === 1 ? (
-                    <div style={{ marginTop: 20, display: 'flex', justifyContent: 'center' }}>
+                    <AccountGridWrapper>
                         {
-                            AccountCategory.map(item =>
-                                <AccountIconDiv key={item[0]} isSelected={accountType == item[0] ? true : false} onClick={() => nextClick(item)}>
-                                    <Icon icon={item[0]} size={40} />
-                                    <UI_Text style={{ fontSize: 13, marginTop: 5 }}>{item[1]}</UI_Text>
-                                </AccountIconDiv>
+                            AccountGridItems.map((item, idx) =>
+                                <AccountGrid
+                                    key={idx}
+                                    item={item}
+                                    selected={type}
+                                    onClick={NextStage}
+                                />
                             )
                         }
-                    </div>
+                    </AccountGridWrapper>
                 ) : (
                     <div>
-                        <div>
-                            <UI_Text>{accountType === 'user' ? "Person Name" : 'Account Name'}</UI_Text>
-                            <UI_Input style={{ marginTop: 5 }} placeholder={`Enter ${accountType === 'user' ? "Person Name" : 'Account Name'}...`} />
-                        </div>
-                        <div style={{ marginTop: 10 }}>
-                            <UI_Text>Enter your opening balance</UI_Text>
-                            <UI_Input type="number" style={{ marginTop: 5 }} placeholder={`Enter Balance...`} />
-                        </div>
-                        <div style={{ marginTop: 10, display: 'flex' }}>
-                            <AccountBalanceType onClick={() => setIsPostive(true)} isSelected={isPositive}>
-                                {accountType === "user" ? "Receivable" : "Postive"}
+                        <FormItemContainer>
+                            <FormItemLabel>{type === 'user' ? "Person Name" : 'Account Name'}</FormItemLabel>
+                            <UI_Input
+                                value={accountName}
+                                style={{ marginTop: 5 }}
+                                placeholder={`Enter ${type === 'user' ? "Person Name" : 'Account Name'}...`}
+                                onChange={(e: ChangeEvent<HTMLInputElement>) => setValue<string>("accountName", e.currentTarget.value)}
+                            />
+                        </FormItemContainer>
+                        <FormItemContainer>
+                            <FormItemLabel>Enter your opening balance</FormItemLabel>
+                            <UI_Input
+                                type="number"
+                                value={accountBalance}
+                                onChange={(e: ChangeEvent<HTMLInputElement>) => setValue<number>('accountBalance', Number(e.currentTarget.value))}
+                                style={{ marginTop: 5 }}
+                                placeholder={`Enter Balance...`}
+                            />
+                        </FormItemContainer>
+                        <FormItemContainer $row={true}>
+                            <AccountBalanceType onClick={() => setValue<boolean>("isPositive", true)} $isSelected={isPositive}>
+                                {type === "user" ? "Receivable" : "Postive"}
                             </AccountBalanceType>
-                            <AccountBalanceType onClick={() => setIsPostive(false)} isSelected={!isPositive}>
-                                {accountType === "user" ? "Payable" : "Negative"}
+                            <AccountBalanceType onClick={() => setValue<boolean>("isPositive", false)} $isSelected={!isPositive}>
+                                {type === "user" ? "Payable" : "Negative"}
                             </AccountBalanceType>
-                        </div>
+                        </FormItemContainer>
                     </div>
                 )
             }
