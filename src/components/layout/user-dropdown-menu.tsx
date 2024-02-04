@@ -10,7 +10,7 @@ type ComponentProps = {
         email: string;
     } | null;
 }
-const UserDropDownMenu: React.FC<ComponentProps> = ({ data }): JSX.ElementF => {
+const UserDropDownMenu: React.FC<ComponentProps> = ({ data }): JSX.Element => {
     const name = data?.name;
     const email = data?.email;
     const letter = data?.name.split(' ').map(item => item[0].toUpperCase()).join("");
