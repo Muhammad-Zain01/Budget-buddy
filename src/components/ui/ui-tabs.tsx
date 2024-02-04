@@ -32,9 +32,18 @@ const TabContainer = styled.div`
 `
 type ComponnetProps = {
     onChange: (e: ChangeEvent) => void,
-    items: TabsProps['items'],
 }
-const UI_Tabs: React.FC<ComponnetProps | TabsProps> = ({ onChange, items, ...props }): JSX.Element => {
+const UI_Tabs: React.FC<ComponnetProps | TabsProps> = ({ onChange, ...props }): JSX.Element => {
+    const items: TabsProps['items'] = [
+        {
+            key: 'income',
+            label: 'Income',
+        },
+        {
+            key: 'expense',
+            label: 'Expense',
+        },
+    ];
     return (
         <TabContainer>
             <TabWrapper {...props} size="middle" defaultActiveKey="income" items={items} onChange={onChange} />
