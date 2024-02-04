@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Input as Inp } from "../../common/ui-import";
+import { FormItem as FormItemLabel, Input as Inp } from "../../common/ui-import";
 import { InputProps } from "antd";
 
 const Input = styled(Inp)`
@@ -14,13 +14,24 @@ const Input = styled(Inp)`
     &::placeholder{
         color: #b8b8b8ad
     }
-   
-
 `
+const FormItem = styled(FormItemLabel)`
+    margin-bottom: 0px !important;
+    .ant-form-item-explain-error{
+        margin-top: 4px  !important;
+        font-size: 14px !important;
+    }
+`
+type ComponentProps = {
+    help?: string;
+    validateStatus?: 'error' | 'success' | 'warning' | 'validating';
+}
 
-const UI_Input: React.FC<InputProps> = ({ ...props }) => {
+const UI_Input: React.FC<ComponentProps | InputProps> = ({ help, validateStatus, ...props }) => {
     return (
-        <Input {...props} />
+        <FormItem className="testtest" hasFeedback help={help} validateStatus={validateStatus}>
+            <Input {...props} />
+        </FormItem>
     )
 }
 export default UI_Input;
