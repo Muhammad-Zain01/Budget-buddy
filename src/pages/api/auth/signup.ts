@@ -20,7 +20,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         return res.status(401).json({ status: 0, message: 'User Already Registered' })
     }
 
-    // ADDING TO DB
     const hashedPassword = await HashPassword(password)
     const userData = { name, username, email, password: hashedPassword }
     const user = await prisma.user.create({

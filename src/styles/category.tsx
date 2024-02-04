@@ -6,6 +6,7 @@ import { isSelectedProp } from "./global";
 export const CategoryWrapper = styled.div`
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
     justify-content: start;
 `
 

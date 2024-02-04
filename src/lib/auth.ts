@@ -1,7 +1,6 @@
 import { authOptions } from '@/pages/api/auth/[...nextauth]';
 import { hash, compare } from 'bcryptjs'
 import { getServerSession } from 'next-auth';
-import { getSession } from 'next-auth/react';
 
 export async function HashPassword(password: string) {
     try {

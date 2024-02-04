@@ -20,7 +20,6 @@ export default Dashboard
 
 export async function getServerSideProps(context) {
     const session = await getUserSession(context)
-    console.log(">>>",session);
     if(!session) return RedirectToLogin;
 
     return { props: {} }

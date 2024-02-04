@@ -25,6 +25,7 @@ export const GlobalStyle = createGlobalStyle`
     input[type=number]::-webkit-outer-spin-button {
         display: none;
     }
+   
 `;
 
 
