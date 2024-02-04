@@ -7,9 +7,9 @@ import { useSession } from "next-auth/react";
 
 const UserDropDown: React.FC = (): JSX.Element => {
     const session = useSession();
-    const data = session?.data;
+    const data = session?.data?.user;
     const letter = data?.name.split(' ').map(item => item[0].toUpperCase()).join("");
-
+    
     const UserMenu: MenuProps['items'] = [
         {
             key: '1',
