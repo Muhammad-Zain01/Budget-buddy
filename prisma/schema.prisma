@@ -3,8 +3,8 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
 }
 
 model User {
@@ -35,8 +35,8 @@ model Category {
   icon         String        @db.VarChar(50)
   status       Boolean       @default(true)
   createdAt    DateTime      @default(now())
-  addedBy      User          @relation(fields: [userId], references: [id])
-  userId       Int
+  addedBy      User?         @relation(fields: [userId], references: [id])
+  userId       Int?
   Transaction  Transaction[]
   Goal         Goal[]
 }
@@ -69,23 +69,23 @@ model Transaction {
 }
 
 model Goal {
-  id   Int       @id @default(autoincrement())
-  type GoalTypes
-  name String @db.VarChar(100)
-  description String
-  targetAmount Float
+  id            Int       @id @default(autoincrement())
+  type          GoalTypes
+  name          String    @db.VarChar(100)
+  description   String
+  targetAmount  Float
   currentAmount Float
-  fromDate DateTime
-  toDate DateTime
-  isAchieved Boolean
-  isRecuring Boolean
-  recuringFrom DateTime
-  recuringTo DateTime
-  createdAt DateTime @default(now())
-  category   Category @relation(fields: [categoryId], references: [id])
-  addedBy    User     @relation(fields: [userId], references: [id])
-  categoryId Int
-  userId     Int
+  fromDate      DateTime
+  toDate        DateTime
+  isAchieved    Boolean
+  isRecuring    Boolean
+  recuringFrom  DateTime
+  recuringTo    DateTime
+  createdAt     DateTime  @default(now())
+  category      Category  @relation(fields: [categoryId], references: [id])
+  addedBy       User      @relation(fields: [userId], references: [id])
+  categoryId    Int
+  userId        Int
 }
 
 enum GoalTypes {
