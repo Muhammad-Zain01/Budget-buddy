@@ -32,6 +32,7 @@ import { FaRegCircleUser } from "react-icons/fa6";
 import { MdNavigateNext } from "react-icons/md";
 import { GrFormPrevious } from "react-icons/gr";
 import { IoIosAddCircleOutline } from "react-icons/io";
+import { CiEdit } from "react-icons/ci";
 
 import styled from "styled-components";
 import Image from "next/image";
@@ -89,5 +90,7 @@ export const Transport: React.FC<any> = props => <IconComponent Component={MdOut
 export const Bank: React.FC<any> = props => <IconComponent Component={AiFillBank} props={props} />
 export const Cash: React.FC<any> = props => <IconComponent Component={IoMdCash} props={props} />
 export const Dots: React.FC<any> = props => <IconComponent Component={BsThreeDotsVertical} props={props} />
+export const Edit: React.FC<any> = props => <IconComponent Component={CiEdit} props={props} />
+
 
 

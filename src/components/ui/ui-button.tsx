@@ -6,7 +6,7 @@ import { Button } from "../../common/ui-import";
 const MainButton = styled(Button)`
     color: ${(props) => props.type != 'primary' && props.theme.color};
     border-radius: 4px;
-    background-color: ${(props) => props.type != 'primary' && props.theme.contentBackground};
+    background-color: ${(props) => props.type != 'primary' && props.theme.cardBackground};
 `
 
 const UI_Button: React.FC<ChildNodeType | ButtonProps> = ({ children, ...props }) => {

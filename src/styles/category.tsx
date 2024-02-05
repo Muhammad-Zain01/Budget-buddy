@@ -53,7 +53,7 @@ export const CategoryCard = styled(Card)`
 
 export const CategoryHeading = styled(UI_Title)`
     margin: 0px !important;
-    margin-top: 10px;
+    margin-top: 10px !important;
     font-size: 15px !important;
     text-align: center;
 `

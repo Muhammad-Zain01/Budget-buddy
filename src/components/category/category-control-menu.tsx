@@ -1,11 +1,26 @@
 import { ContegoryMenuIconSpan, ContegoryMenuIconWrapper } from "@/styles/category";
-import { Delete, HiddenIcon, ShowIcon } from "../icon";
+import { Cash, Delete, Dots, Edit, HiddenIcon, ShowIcon } from "../icon";
 import { useState } from "react";
+import DropMenu from "../common/drop-menu";
+import { MenuProps } from "antd";
+import UI_Button from "../ui/ui-button";
 
 
 type ComponentProps = {
     id: number;
     isPrimary: boolean;
+}
+
+const CategoryMenu = () => {
+    return (
+        <div style={{ width: 120, padding: 1 }}>
+            <UI_Button type="text" style={{ width: "100%", display: 'flex', textAlign: 'start' }}>
+                <Edit size={15} right={5} />
+                Edit
+            </UI_Button>
+            <UI_Button type="text" style={{ width: "100%", textAlign: 'start' }}>Active</UI_Button>
+        </div>
+    )
 }
 const CategoryControlMenu: React.FC<ComponentProps> = ({ id, isPrimary }): JSX.Element => {
     const [showCategory, setShowCategory] = useState(true)
@@ -18,16 +33,11 @@ const CategoryControlMenu: React.FC<ComponentProps> = ({ id, isPrimary }): JSX.E
     const RemoveCategory = () => {
         console.log("REMOVE CATEGORY")
     }
+
     if (!isPrimary) {
         return (
             <ContegoryMenuIconWrapper>
-                <ContegoryMenuIconSpan onClick={showCategory ? ShowCategory : HideCategory}>
-                    {showCategory ? <ShowIcon size={18} /> : <HiddenIcon size={18} />}
-                </ContegoryMenuIconSpan>
-                <ContegoryMenuIconSpan onClick={RemoveCategory}>
-                    <Delete size={15} />
-                </ContegoryMenuIconSpan>
-                {/* <HiddenIcon size={20} /> */}
+                <DropMenu item={<CategoryMenu />} />
             </ContegoryMenuIconWrapper>
         )
     }
